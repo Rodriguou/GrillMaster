@@ -1,18 +1,10 @@
-import { useState } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
-
 import CalculatorIcon from '../../../assets/calculatorIcon'
 import RecipesIcon from '../../../assets/recipesIcon'
 import { styles } from './styles'
 
-export default function Header() {
-    const [selectedButton, setSelectedButton] = useState('calculator')
-
-    const handleButtonPress = (button) => {
-        setSelectedButton(button);
-    }
-
-    return(
+export default function Header({ selectedButton, onPress }) {
+    return (
         <View style={styles.container}>
             <Text style={[styles.text, styles.title]}>Churraskol</Text>
 
@@ -22,7 +14,7 @@ export default function Header() {
                         styles.button,
                         selectedButton === 'calculator' ? styles.selectedButton : styles.unselectedButton
                     ]}
-                    onPress={() => handleButtonPress('calculator')}
+                    onPress={() => onPress('calculator')}
                 >
                     <CalculatorIcon selected={selectedButton === 'calculator'} />
 
@@ -42,10 +34,10 @@ export default function Header() {
                         styles.button,
                         selectedButton === 'recipes' ? styles.selectedButton : styles.unselectedButton
                     ]}
-                    onPress={() => handleButtonPress('recipes')}
+                    onPress={() => onPress('recipes')}
                 >
                     <RecipesIcon selected={selectedButton === 'recipes'} />
-
+                    
                     <Text
                         style={[
                             styles.text,
