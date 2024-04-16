@@ -1,22 +1,60 @@
-import { View, Text, TouchableOpacity } from "react-native"
+import { useState } from 'react'
+import { View, Text, TouchableOpacity } from 'react-native'
 
-import RecipesIcon from "../../../assets/recipesIcon"
-import { styles } from "./styles"
+import CalculatorIcon from '../../../assets/calculatorIcon'
+import RecipesIcon from '../../../assets/recipesIcon'
+import { styles } from './styles'
 
 export default function Header() {
-    return(
-        <View>
-            <Text style={styles.title}>Churraskol</Text>
+    const [selectedButton, setSelectedButton] = useState('calculator')
 
-            <View>
-                <TouchableOpacity>
-                    <Text>CALCULADORA</Text>
+    const handleButtonPress = (button) => {
+        setSelectedButton(button);
+    }
+
+    return(
+        <View style={styles.container}>
+            <Text style={[styles.text, styles.title]}>Churraskol</Text>
+
+            <View style={styles.menu}>
+                <TouchableOpacity
+                    style={[
+                        styles.button,
+                        selectedButton === 'calculator' ? styles.selectedButton : styles.unselectedButton
+                    ]}
+                    onPress={() => handleButtonPress('calculator')}
+                >
+                    <CalculatorIcon selected={selectedButton === 'calculator'} />
+
+                    <Text
+                        style={[
+                            styles.text,
+                            styles.buttonText,
+                            selectedButton === 'calculator' ? styles.selectedButtonText : styles.unselectedButtonText
+                        ]}
+                    >
+                        CALCULADORA
+                    </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
-                    <RecipesIcon />
+                <TouchableOpacity
+                    style={[
+                        styles.button,
+                        selectedButton === 'recipes' ? styles.selectedButton : styles.unselectedButton
+                    ]}
+                    onPress={() => handleButtonPress('recipes')}
+                >
+                    <RecipesIcon selected={selectedButton === 'recipes'} />
 
-                    <Text>RECEITAS</Text>
+                    <Text
+                        style={[
+                            styles.text,
+                            styles.buttonText,
+                            selectedButton === 'recipes' ? styles.selectedButtonText : styles.unselectedButtonText
+                        ]}
+                    >
+                        RECEITAS
+                    </Text>
                 </TouchableOpacity>
             </View>
         </View>
