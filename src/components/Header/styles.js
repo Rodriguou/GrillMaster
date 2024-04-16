@@ -2,8 +2,7 @@ import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
     container: {
-        marginTop: 15,
-        marginHorizontal: 30,
+        marginTop: 15
     },
     text: {
         fontFamily: 'Archivo_700Bold'
