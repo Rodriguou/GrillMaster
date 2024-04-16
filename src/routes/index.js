@@ -1,11 +1,11 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import Home from "../pages/Home";
-import Result from "../pages/Result";
-
-const Stack = createNativeStackNavigator();
+import Home from '../screens/Home'
+import Result from '../screens/Result'
 
 export default function Routes() {
+    const Stack = createNativeStackNavigator()
+
     return(
         <Stack.Navigator>
             <Stack.Screen
