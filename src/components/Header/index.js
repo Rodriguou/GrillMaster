@@ -1,4 +1,5 @@
 import { View, Text, TouchableOpacity } from 'react-native'
+
 import CalculatorIcon from '../../../assets/calculatorIcon'
 import RecipesIcon from '../../../assets/recipesIcon'
 import { styles } from './styles'
