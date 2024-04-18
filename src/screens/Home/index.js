@@ -1,10 +1,10 @@
-import { SafeAreaView, View } from 'react-native'
 import { useState } from 'react'
+import { SafeAreaView, View } from 'react-native'
 
-import { styles } from './styles'
 import Header from '../../components/Header'
 import Calculator from '../../components/Calculator'
 import Recipes from '../../components/Recipes'
+import { styles } from './styles'
 
 export default function Home() {
     const [selectedButton, setSelectedButton] = useState('calculator')
@@ -18,9 +18,7 @@ export default function Home() {
             <Header selectedButton={selectedButton} onPress={handleButtonPress} />
 
             <View>
-                {selectedButton === 'calculator' && <Calculator />}
-                
-                {selectedButton === 'recipes' && <Recipes />}
+                {selectedButton === 'calculator' ? <Calculator /> : <Recipes />}
             </View>
         </SafeAreaView>
     )
