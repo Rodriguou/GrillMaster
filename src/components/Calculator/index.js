@@ -1,11 +1,12 @@
-import { Text, View } from 'react-native'
+import { ScrollView } from 'react-native'
 
+import Guests from '../Guests'
 import { styles } from './styles'
 
 export default function Calculator() {
     return(
-        <View>
-            <Text>Calculadora</Text>
-        </View>
+        <ScrollView>
+            <Guests />
+        </ScrollView>
     )
 }
