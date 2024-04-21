@@ -20,7 +20,8 @@ export const styles = StyleSheet.create({
     menu: {
         flexDirection: 'row',
         borderRadius: 3,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        marginBottom: 36
     },
     button: {
         flexDirection: 'row',
@@ -43,5 +44,22 @@ export const styles = StyleSheet.create({
     },
     unselectedButtonText: {
         color: '#5f5f5f'
+    },
+    option: {
+        backgroundColor: '#fff',
+        padding: 9,
+        borderWidth: 1.5,
+        borderColor: '#e4e2e2',
+        borderRadius: 9
+    },
+    optionText: {
+        fontSize: 15,
+        fontFamily: 'Archivo_600SemiBold'
+    },
+    optionName: {
+        color: '#2a2a2a'
+    },
+    optionPrice: {
+        color: '#898989'
     }
 })

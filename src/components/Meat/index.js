@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Text, View, TouchableOpacity } from 'react-native'
+import { Text, View, TouchableOpacity, ScrollView } from 'react-native'
 
 import MeatIcon from '../../../assets/meatIcon'
 import { styles } from './styles'
@@ -77,6 +77,108 @@ export default function Meat() {
                     </Text>
                 </TouchableOpacity>
             </View>
+
+            {selectedButton === 'beef' && (
+                <ScrollView
+                    horizontal
+                    contentContainerStyle={{
+                        gap: 21
+                    }}
+                    showsHorizontalScrollIndicator={false}
+                >
+                    <TouchableOpacity style={styles.option}>
+                        {/* <ManIcon /> */}
+
+                        <Text style={[styles.optionText, styles.optionName]}>Picanha</Text>
+
+                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.option}>
+                        {/* <WomanIcon /> */}
+
+                        <Text style={[styles.optionText, styles.optionName]}>Costela</Text>
+
+                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.option}>
+                        {/* <KidIcon /> */}
+
+                        <Text style={[styles.optionText, styles.optionName]}>Maminha</Text>
+
+                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                    </TouchableOpacity>
+                </ScrollView>
+            )}
+
+            {selectedButton === 'pork' && (
+                <ScrollView
+                    horizontal
+                    contentContainerStyle={{
+                        gap: 21
+                    }}
+                    showsHorizontalScrollIndicator={false}
+                >
+                    <TouchableOpacity style={styles.option}>
+                        {/* <ManIcon /> */}
+
+                        <Text style={[styles.optionText, styles.optionName]}>Lombinho</Text>
+
+                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.option}>
+                        {/* <WomanIcon /> */}
+
+                        <Text style={[styles.optionText, styles.optionName]}>Pernil</Text>
+
+                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.option}>
+                        {/* <KidIcon /> */}
+
+                        <Text style={[styles.optionText, styles.optionName]}>Paleta</Text>
+
+                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                    </TouchableOpacity>
+                </ScrollView>
+            )}
+
+            {selectedButton === 'chicken' && (
+                <ScrollView
+                    horizontal
+                    contentContainerStyle={{
+                        gap: 21
+                    }}
+                    showsHorizontalScrollIndicator={false}
+                >
+                    <TouchableOpacity style={styles.option}>
+                        {/* <ManIcon /> */}
+
+                        <Text style={[styles.optionText, styles.optionName]}>Coxa</Text>
+
+                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.option}>
+                        {/* <WomanIcon /> */}
+
+                        <Text style={[styles.optionText, styles.optionName]}>Asa</Text>
+
+                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.option}>
+                        {/* <KidIcon /> */}
+
+                        <Text style={[styles.optionText, styles.optionName]}>Coração</Text>
+
+                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                    </TouchableOpacity>
+                </ScrollView>
+            )}
         </View>
     )
 }
