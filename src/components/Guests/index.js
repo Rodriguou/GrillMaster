@@ -17,7 +17,6 @@ export default function Guests() {
             <ScrollView
                 horizontal
                 contentContainerStyle={{
-                    flexDirection: 'row',
                     gap: 21
                 }}
                 showsHorizontalScrollIndicator={false}
