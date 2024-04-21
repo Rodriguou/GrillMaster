@@ -5,7 +5,7 @@ import MeatIcon from '../../../assets/meatIcon'
 import { styles } from './styles'
 
 export default function Meat() {
-    const [selectedButton, setSelectedButton] = useState('bovina')
+    const [selectedButton, setSelectedButton] = useState('beef')
 
     const handleButtonPress = (button) => {
         setSelectedButton(button)
@@ -23,16 +23,16 @@ export default function Meat() {
                 <TouchableOpacity
                     style={[
                         styles.button,
-                        selectedButton === 'bovina' ? styles.selectedButton : styles.unselectedButton
+                        selectedButton === 'beef' ? styles.selectedButton : styles.unselectedButton
                     ]}
-                    onPress={() => handleButtonPress('bovina')}
+                    onPress={() => handleButtonPress('beef')}
                 >
-                    <MeatIcon selected={selectedButton === 'bovina'} />
+                    <MeatIcon selected={selectedButton === 'beef'} />
 
                     <Text
                         style={[
                             styles.buttonText,
-                            selectedButton === 'bovina' ? styles.selectedButtonText : styles.unselectedButtonText
+                            selectedButton === 'beef' ? styles.selectedButtonText : styles.unselectedButtonText
                         ]}
                     >
                         Bovina
@@ -42,16 +42,16 @@ export default function Meat() {
                 <TouchableOpacity
                     style={[
                         styles.button,
-                        selectedButton === 'suína' ? styles.selectedButton : styles.unselectedButton
+                        selectedButton === 'pork' ? styles.selectedButton : styles.unselectedButton
                     ]}
-                    onPress={() => handleButtonPress('suína')}
+                    onPress={() => handleButtonPress('pork')}
                 >
-                    <MeatIcon selected={selectedButton === 'suína'} />
+                    <MeatIcon selected={selectedButton === 'pork'} />
                     
                     <Text
                         style={[
                             styles.buttonText,
-                            selectedButton === 'suína' ? styles.selectedButtonText : styles.unselectedButtonText
+                            selectedButton === 'pork' ? styles.selectedButtonText : styles.unselectedButtonText
                         ]}
                     >
                         Suína
@@ -61,16 +61,16 @@ export default function Meat() {
                 <TouchableOpacity
                     style={[
                         styles.button,
-                        selectedButton === 'frango' ? styles.selectedButton : styles.unselectedButton
+                        selectedButton === 'chicken' ? styles.selectedButton : styles.unselectedButton
                     ]}
-                    onPress={() => handleButtonPress('frango')}
+                    onPress={() => handleButtonPress('chicken')}
                 >
-                    <MeatIcon selected={selectedButton === 'frango'} />
+                    <MeatIcon selected={selectedButton === 'chicken'} />
                     
                     <Text
                         style={[
                             styles.buttonText,
-                            selectedButton === 'frango' ? styles.selectedButtonText : styles.unselectedButtonText
+                            selectedButton === 'chicken' ? styles.selectedButtonText : styles.unselectedButtonText
                         ]}
                     >
                         Frango
