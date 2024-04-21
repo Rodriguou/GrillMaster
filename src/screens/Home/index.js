@@ -18,7 +18,6 @@ export default function Home() {
             <Header selectedButton={selectedButton} onPress={handleButtonPress} />
 
             {selectedButton === 'calculator' ? <Calculator /> : <Recipes />}
-
         </SafeAreaView>
     )
 }
