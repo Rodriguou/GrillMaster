@@ -2,6 +2,7 @@ import { ScrollView } from 'react-native'
 
 import Guests from '../Guests'
 import Meat from '../Meat'
+import Drinks from '../Drinks'
 import { styles } from './styles'
 
 export default function Calculator() {
@@ -10,6 +11,8 @@ export default function Calculator() {
             <Guests />
 
             <Meat />
+
+            <Drinks />
         </ScrollView>
     )
 }
