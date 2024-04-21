@@ -4,11 +4,15 @@ import Guests from '../Guests'
 import Meat from '../Meat'
 import Drinks from '../Drinks'
 import Consumables from '../Consumables'
+import CalculateButton from '../CalculateButton'
 import { styles } from './styles'
 
 export default function Calculator() {
     return(
-        <ScrollView>
+        <ScrollView
+            contentContainerStyle={styles.container}
+            showsVerticalScrollIndicator={false}
+        >
             <Guests />
 
             <Meat />
@@ -16,6 +20,8 @@ export default function Calculator() {
             <Drinks />
 
             <Consumables />
+
+            <CalculateButton />
         </ScrollView>
     )
 }
