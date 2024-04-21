@@ -4,8 +4,7 @@ export const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 9
+        alignItems: 'center'
     },
     headerTitle: {
         fontSize: 30,
@@ -21,7 +20,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         borderRadius: 3,
         overflow: 'hidden',
-        marginBottom: 36
+        marginTop: 9
     },
     button: {
         flexDirection: 'row',
@@ -44,6 +43,10 @@ export const styles = StyleSheet.create({
     },
     unselectedButtonText: {
         color: '#5f5f5f'
+    },
+    options: {
+        gap: 21,
+        marginTop: 36
     },
     option: {
         backgroundColor: '#fff',

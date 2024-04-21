@@ -16,9 +16,7 @@ export default function Guests() {
 
             <ScrollView
                 horizontal
-                contentContainerStyle={{
-                    gap: 21
-                }}
+                contentContainerStyle={styles.options}
                 showsHorizontalScrollIndicator={false}
             >
                 <View style={styles.option}>

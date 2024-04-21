@@ -4,8 +4,7 @@ export const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 9
+        alignItems: 'center'
     },
     headerTitle: {
         flex: 1,
@@ -18,6 +17,10 @@ export const styles = StyleSheet.create({
         fontSize: 27,
         fontFamily: 'Archivo_500Medium',
         color: '#e2e2e2'
+    },
+    options: {
+        gap: 21,
+        marginTop: 36
     },
     option: {
         backgroundColor: '#fff',

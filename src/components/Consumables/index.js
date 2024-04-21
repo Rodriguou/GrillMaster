@@ -13,9 +13,7 @@ export default function Consumables() {
 
             <ScrollView
                 horizontal
-                contentContainerStyle={{
-                    gap: 21
-                }}
+                contentContainerStyle={styles.options}
                 showsHorizontalScrollIndicator={false}
             >
                 <TouchableOpacity style={styles.option}>

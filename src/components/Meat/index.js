@@ -81,9 +81,7 @@ export default function Meat() {
             {selectedButton === 'beef' && (
                 <ScrollView
                     horizontal
-                    contentContainerStyle={{
-                        gap: 21
-                    }}
+                    contentContainerStyle={styles.options}
                     showsHorizontalScrollIndicator={false}
                 >
                     <TouchableOpacity style={styles.option}>
@@ -115,9 +113,7 @@ export default function Meat() {
             {selectedButton === 'pork' && (
                 <ScrollView
                     horizontal
-                    contentContainerStyle={{
-                        gap: 21
-                    }}
+                    contentContainerStyle={styles.options}
                     showsHorizontalScrollIndicator={false}
                 >
                     <TouchableOpacity style={styles.option}>
@@ -149,9 +145,7 @@ export default function Meat() {
             {selectedButton === 'chicken' && (
                 <ScrollView
                     horizontal
-                    contentContainerStyle={{
-                        gap: 21
-                    }}
+                    contentContainerStyle={styles.options}
                     showsHorizontalScrollIndicator={false}
                 >
                     <TouchableOpacity style={styles.option}>
