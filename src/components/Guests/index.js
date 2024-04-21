@@ -61,7 +61,6 @@ export default function Guests() {
                 <View style={styles.option}>
                     <KidIcon />
 
-
                     <Text style={styles.optionText}>Criança</Text>
 
                     <View style={styles.optionSelection}>
