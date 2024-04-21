@@ -17,9 +17,8 @@ export default function Home() {
         <SafeAreaView style={styles.container}>
             <Header selectedButton={selectedButton} onPress={handleButtonPress} />
 
-            <View>
-                {selectedButton === 'calculator' ? <Calculator /> : <Recipes />}
-            </View>
+            {selectedButton === 'calculator' ? <Calculator /> : <Recipes />}
+
         </SafeAreaView>
     )
 }
