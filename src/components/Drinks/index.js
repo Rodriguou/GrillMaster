@@ -1,4 +1,4 @@
-import { Text, View, ScrollView, TouchableOpacity } from 'react-native'
+import { Text, View, ScrollView, TouchableOpacity, Image } from 'react-native'
 
 import { styles } from './styles'
 
@@ -17,27 +17,42 @@ export default function Drinks() {
                 showsHorizontalScrollIndicator={false}
             >
                 <TouchableOpacity style={styles.option}>
-                    {/* <ManIcon /> */}
+                    <Image
+                        source={require('../../../assets/water.png')}
+                        style={styles.optionImage}
+                    />
 
-                    <Text style={[styles.optionText, styles.optionName]}>Água</Text>
+                    <View>
+                        <Text style={[styles.optionText, styles.optionName]}>Água</Text>
 
-                    <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                    </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.option}>
-                    {/* <WomanIcon /> */}
+                    <Image
+                        source={require('../../../assets/soda.png')}
+                        style={styles.optionImage}
+                    />
 
-                    <Text style={[styles.optionText, styles.optionName]}>Refrigerante</Text>
+                    <View>
+                        <Text style={[styles.optionText, styles.optionName]}>Refrigerante</Text>
 
-                    <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                    </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.option}>
-                    {/* <KidIcon /> */}
+                    <Image
+                        source={require('../../../assets/coarseSalt.png')}
+                        style={styles.optionImage}
+                    />
 
-                    <Text style={[styles.optionText, styles.optionName]}>Cerveja</Text>
+                    <View>
+                        <Text style={[styles.optionText, styles.optionName]}>Cerveja</Text>
 
-                    <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                    </View>
                 </TouchableOpacity>
             </ScrollView>
         </View>

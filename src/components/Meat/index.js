@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Text, View, TouchableOpacity, ScrollView } from 'react-native'
+import { Text, View, TouchableOpacity, ScrollView, Image } from 'react-native'
 
 import MeatIcon from '../../../assets/meatIcon'
 import { styles } from './styles'
@@ -85,27 +85,42 @@ export default function Meat() {
                     showsHorizontalScrollIndicator={false}
                 >
                     <TouchableOpacity style={styles.option}>
-                        {/* <ManIcon /> */}
+                        <Image
+                            source={require('../../../assets/coal.png')}
+                            style={styles.optionImage}
+                        />
 
-                        <Text style={[styles.optionText, styles.optionName]}>Picanha</Text>
+                        <View>
+                            <Text style={[styles.optionText, styles.optionName]}>Picanha</Text>
 
-                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                        </View>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.option}>
-                        {/* <WomanIcon /> */}
+                        <Image
+                            source={require('../../../assets/coarseSalt.png')}
+                            style={styles.optionImage}
+                        />
 
-                        <Text style={[styles.optionText, styles.optionName]}>Costela</Text>
+                        <View>
+                            <Text style={[styles.optionText, styles.optionName]}>Costela</Text>
 
-                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                        </View>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.option}>
-                        {/* <KidIcon /> */}
+                        <Image
+                            source={require('../../../assets/coarseSalt.png')}
+                            style={styles.optionImage}
+                        />
 
-                        <Text style={[styles.optionText, styles.optionName]}>Maminha</Text>
+                        <View>
+                            <Text style={[styles.optionText, styles.optionName]}>Maminha</Text>
 
-                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                        </View>
                     </TouchableOpacity>
                 </ScrollView>
             )}
@@ -117,27 +132,42 @@ export default function Meat() {
                     showsHorizontalScrollIndicator={false}
                 >
                     <TouchableOpacity style={styles.option}>
-                        {/* <ManIcon /> */}
+                        <Image
+                            source={require('../../../assets/coal.png')}
+                            style={styles.optionImage}
+                        />
 
-                        <Text style={[styles.optionText, styles.optionName]}>Lombinho</Text>
+                        <View>
+                            <Text style={[styles.optionText, styles.optionName]}>Lombinho</Text>
 
-                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                        </View>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.option}>
-                        {/* <WomanIcon /> */}
+                        <Image
+                            source={require('../../../assets/coarseSalt.png')}
+                            style={styles.optionImage}
+                        />
 
-                        <Text style={[styles.optionText, styles.optionName]}>Pernil</Text>
+                        <View>
+                            <Text style={[styles.optionText, styles.optionName]}>Pernil</Text>
 
-                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                        </View>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.option}>
-                        {/* <KidIcon /> */}
+                        <Image
+                            source={require('../../../assets/coarseSalt.png')}
+                            style={styles.optionImage}
+                        />
 
-                        <Text style={[styles.optionText, styles.optionName]}>Paleta</Text>
+                        <View>
+                            <Text style={[styles.optionText, styles.optionName]}>Paleta</Text>
 
-                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                        </View>
                     </TouchableOpacity>
                 </ScrollView>
             )}
@@ -149,27 +179,42 @@ export default function Meat() {
                     showsHorizontalScrollIndicator={false}
                 >
                     <TouchableOpacity style={styles.option}>
-                        {/* <ManIcon /> */}
+                        <Image
+                            source={require('../../../assets/coal.png')}
+                            style={styles.optionImage}
+                        />
 
-                        <Text style={[styles.optionText, styles.optionName]}>Coxa</Text>
+                        <View>
+                            <Text style={[styles.optionText, styles.optionName]}>Coxa</Text>
 
-                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                        </View>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.option}>
-                        {/* <WomanIcon /> */}
+                        <Image
+                            source={require('../../../assets/coarseSalt.png')}
+                            style={styles.optionImage}
+                        />
 
-                        <Text style={[styles.optionText, styles.optionName]}>Asa</Text>
+                        <View>
+                            <Text style={[styles.optionText, styles.optionName]}>Asa</Text>
 
-                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                        </View>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.option}>
-                        {/* <KidIcon /> */}
+                        <Image
+                            source={require('../../../assets/coarseSalt.png')}
+                            style={styles.optionImage}
+                        />
 
-                        <Text style={[styles.optionText, styles.optionName]}>Coração</Text>
+                        <View>
+                            <Text style={[styles.optionText, styles.optionName]}>Coração</Text>
 
-                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
+                        </View>
                     </TouchableOpacity>
                 </ScrollView>
             )}
