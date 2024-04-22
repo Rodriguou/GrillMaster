@@ -10,7 +10,7 @@ export default function Recipes() {
   return (
     <View  style={styles.container}>
         <Text>Confira nessa seção sugestões de receitas com os cortes de carne da calculadora.</Text>
-        <ScrollView style={styles.recipeContainer}>
+        <ScrollView showsVerticalScrollIndicator={false} style={styles.recipeContainer}>
 
             <Text style={styles.categoryText}>Carne Bovina</Text>
             {beefRecipes.map((recipe, index) => (
