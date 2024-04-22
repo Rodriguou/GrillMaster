@@ -8,17 +8,28 @@ const RecipeItem = ({ name, ingredients, preparation }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => setIsOpen(!isOpen)}>
-        <Text style={[styles.name, isOpen ? { borderBottomColor: '#E86E1A', borderBottomWidth: 1 } : null]}>{name}</Text>
+        <Text
+          style={[
+            styles.name,
+            isOpen
+              ? { borderBottomColor: "#E86E1A", borderBottomWidth: 1 }
+              : null,
+          ]}
+        >
+          {name}
+        </Text>
       </TouchableOpacity>
       {isOpen && (
         <View>
           <Text style={styles.sectionTitle}>Ingredientes:</Text>
           {ingredients.map((ingredient, index) => (
-            <Text key={index}>{`${index + 1}. ${ingredient}`}</Text>
+            <Text key={index}>{`${index + 1} - ${ingredient}`}</Text>
           ))}
-          
-          <Text style={[styles.sectionTitle, {marginTop: '5%'}]}>Modo de Preparo:</Text>
-          <Text>{preparation}</Text>
+
+          <Text style={[styles.sectionTitle, { marginTop: "5%" }]}> Modo de Preparo:</Text>
+          {preparation.map((preparation, index) => (
+            <Text style={{marginBottom: '3%'}} key={index}>{`${index + 1} - ${preparation}`}</Text>
+          ))}
         </View>
       )}
     </View>

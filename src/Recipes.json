@@ -1,100 +1,204 @@
 {
   "beefRecipes": [
     { 
-      "name": "Picanha", 
+      "name": "Picanha na brasa", 
       "ingredients": 
         [
-          "Ingrediente 1",
-          "Ingrediente 2",
-          "Ingrediente 3"
+          "1 Picanha de angus",
+          "Sal grosso a gosto",
+          "Pimenta-do-reino moída a gosto",
+          "Carvão e um pouco de lenha frutífera"
         ], 
-      "preparation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum" 
+      "preparation": 
+        [
+          "Adicionar o sal grosso e a pimenta do reino em uma tigela e misture bem. Com uma faca faça cortes rasos na picanha no lado que tem a gordura. Tempere a picanha com mix de sal grosso e pimenta do reino.",
+          "Em seguida insira a picanha no espeto ou em uma grelha. Coloque a gordura para cima e leve para assar na churrasqueira. Deixe a grelha ou espeto 15 cm da brasa por 10 minutos para selar a carne.",
+          "Quando a carne começar a dessorar o suco, vire a gordura para baixo e deixe por mais 10 minutos. Após esse tempo será o momento de subir a grelha e deixá-la 40cm sobre a brasa.",
+          "Deixe assar por 40 minutos nessa altura com a gordura para cima. Após os 40 minutos, vire a carne novamente com a gordura para baixo. Neste momento é a hora de deixar a gordura bem torradinha e ficar com aspecto dourado.",
+          "Quando ela estiver já bem douradinha retire da brasa e deixe descansar por 5 minutos. Comece a cortar da parte menor para parte maior em fatias finas e sirva em seguida."
+        ] 
     },
     { 
-      "name": "Costela", 
+      "name": "Costela (3 kg)", 
       "ingredients": 
         [
-          "Ingrediente 1",
-          "Ingrediente 2",
-          "Ingrediente 3"
+          "3 kg de costela de boi",
+          "3/4 de copo americano de sal grosso",
+          "3 m de papel alumínio com aproximadamente 40 cm de largura"
         ], 
-      "preparation": "Modo de preparo 1" 
+      "preparation":
+      [
+        "Usando uma faca, faça vários furos na costela.",
+        "Na parte do osso, fure entre eles.",
+        "Na parte da frente (carnuda) fure até a ponta da faca encostar neles.",
+        "Abra o papel-alumínio sobre uma mesa, colocando de 3 a 4 pedaços um sobre o outro, com a parte brilhante pra cima.",
+        "Esses pedaços devem ser suficientes para acomodar a costela e ficar com umas pontas de uns 5 cm sobrando pra cada lado.",
+        "Sobre o papel, espalhe sal grosso, formando uma fina camada por todo o local onde a costela se apoiará.",
+        "Coloque a costela com os ossos virados para baixo sobre o papel e o sal.",
+        "Cubra a costela com uma fina camada de sal grosso.",
+        "Agora recorte a mesma quantidade de papéis que colocou embaixo e coloque sobre a costela.",
+        "Vá dobrando e unindo os papéis de baixo com os de cima, fazendo uma forte união entre as bordas deles.",
+        "Leve a costela e coloque sobre a grelha.",
+        "Marque 2 horas e vire a mesma, deixando mais uma hora e pronto."
+      ]
     },
     { 
       "name": "Maminha", 
       "ingredients": 
         [
-          "Ingrediente 1",
-          "Ingrediente 2",
-          "Ingrediente 3"
+          "1,50 kg maminha inteira",
+          "sal",
+          "pimenta do reino",
+          "noz moscada",
+          "páprica defumada"
         ], 
-      "preparation": "Modo de preparo 1" 
+      "preparation": 
+      [
+        "Faça o fogo na churrasqueira. Deixe o carvão ficar esbranquiçado.",
+        "Misture todos os ingredientes em um recipiente, deixando o sal por último - o sal deve ser colocado no final, misturado aos poucos (prove o tempero), até ficar ao seu gosto.",
+        "Tempere a Maminha por completo. Você também pode optar por selar a carne primeiro, retirar na churrasqueira e então temperar. Das duas formas você terá uma alteração de resultado, ficando ao seu critério escolher qual lhe agrada mais ao paladar.",
+        "Coloque a carne bem perto do fogo para dar uma selada de 5 minutos de cada lado, levante a grelha e deixe assar por 30 minutos de cada lado em fogo brando.",
+        "Retire do fogo espere 5 minutos para os líquidos se equilibrarem e pode cortar!"
+      ] 
     }
   ],
 
   "porkRecipes": [
     { 
-      "name": "Lombinho", 
+      "name": "Lombo na grelha", 
       "ingredients": 
         [
-          "Ingrediente 1",
-          "Ingrediente 2",
-          "Ingrediente 3"
+          "1 peça pequena de lombo suíno (1 kg)",
+          " colher (sopa) de manteiga",
+          "Suco de 1 limão",
+          "2 dentes de alho espremidos",
+          "1 colher (café) de louro em pó",
+          "Sal e pimenta-do-reino moída na hora",
+          "Manteiga derretida para pincelar"
         ], 
-      "preparation": "Modo de preparo 1" 
+      "preparation":
+      [
+        "Faça uma pasta com a manteiga, o suco de limão, o alho, o louro e sal e pimenta a gosto.",
+        "Besunte a carne com essa pasta e deixe tomar gosto por 1 hora.",
+        "Coloque o lombo sobre a grelha e asse, virando sempre, até atingir o ponto desejado.",
+        "De vez em quando, pincele-o com manteiga derretida para não ressecar."
+      ]
     },
     { 
       "name": "Pernil", 
       "ingredients": 
         [
-          "Ingrediente 1",
-          "Ingrediente 2",
-          "Ingrediente 3"
+          "2 fatias de pernil de porco com osso, pele e gordura (cada fatia deve ter, aproximadamente, 5cm de espessura)",
+          "4 dentes de alho",
+          "5 folhas de louro",
+          "4 colheres de sopa de alecrim fresco",
+          "1 maço de cheiro-verde",
+          "6 limões",
+          "1 colher de café de pimenta-do-reino preta em grãos",
+          "2 colheres de chá de sal",
+          "1 colher de sopa de açúcar",
+          "800 mililitros de água",
+          "1 colher de sopa de manteiga"
         ], 
-      "preparation": "Modo de preparo 2" 
+      "preparation":
+      [
+        "Em uma bacia com aproximadamente 800 mililitros de água, esprema os limões, adicione sal, açúcar e mexa bem para preparar a salmoura.",
+        "Coloque o pernil na bacia, até que fique totalmente coberto pela salmoura.",
+        "Corte os 4 dentes de alho em fatias finas e adicione à salmoura.",
+        "Pique grosseiramente o cheiro-verde e adicione à salmoura, juntamente com o alecrim.",
+        "Em um pilão, soque as pimentas e despeje na salmoura.",
+        "Mergulhe 5 folhas de louro na salmoura e deixe o pernil descansar por 12 horas.",
+        "Após o tempo necessário para o pernil curtir na salmoura, retire-o da bacia e leve-o à grelha pré aquecida.",
+        "De vez em quando, pincele o líquido da salmoura no pernil que está na chapa.",
+        "Vire o pernil quando o lado de baixo estiver dourado e pincele novamente com a salmoura.",
+        "Ao retirar o pernil da grelha, antes de servir, passe um pouco de manteiga a gosto."
+      ]
     },
     { 
-      "name": "Paleta", 
+      "name": "Paleta (2 kg)", 
       "ingredients": 
         [
-          "Ingrediente 1",
-          "Ingrediente 2",
-          "Ingrediente 3"
+          "2 kg de paleta suína com osso",
+          "6 dentes de alho",
+          "1 cebola grande",
+          "suco de 4 limões grandes",
+          "sal a gosto"
         ], 
-      "preparation": "Modo de preparo 2" 
+      "preparation":
+      [
+        "Em um refratário, junte a cebola bem picada, o alho moído, o suco dos limões e o sal.",
+        "Após, junte a peça de paleta e distribua o tempero em ambos os lados.",
+        "Tampe o refratário com papel filme e leve a geladeira por, cerca de, 2 horas.",
+        "Após, asse por cerca de 1 hora e 30 minutos, em forno médio (200°C).",
+        "O ideal é deixar na geladeira com tempero de um dia para outro."
+      ]
     }
   ],
 
   "chickenRecipes": [
     { 
-      "name": "Coxa", 
+      "name": "Coxa de frango", 
       "ingredients": 
         [
-          "Ingrediente 1",
-          "Ingrediente 2",
-          "Ingrediente 3"
+          "6 filés de coxa de frango",
+          "2 colheres (chá) de pimenta-do-reino em grão esmagada",
+          "1 colher (chá) de orégano desidratado",
+          "2 pimentas dedo-de-moca picadas e sem sementes",
+          "1/2 colher (chá) de páprica picante",
+          "1 dente de alho esmagado",
+          "1/4 xícara (chá) de vinagre de vinho tinto",
+          "1/4 xícara (chá) de azeite de oliva",
+          "Sal"
         ], 
-      "preparation": "Modo de preparo 1" 
+      "preparation":
+      [
+        "Ponha todos os ingredientes numa tigela (com exceção do frango) e misture bem.",
+        "Reserve aproximadamente ¼ desta mistura.",
+        "Ponha os filés de frango na tigela e os revista com a mistura.",
+        "Deixe de molho por 30 minutos se quiser e tiver tempo.",
+        "Faça as coxas de frango na grelha.",
+        "Na hora de servir regue os files com a mistura que foi reservada."
+      ] 
     },
     { 
-      "name": "Asa", 
+      "name": "Asinha (1 kg)", 
       "ingredients": 
         [
-          "Ingrediente 1",
-          "Ingrediente 2",
-          "Ingrediente 3"
+          "1 kg de asinha de frango",
+          "3 colheres de maionese",
+          "1 pitada de sal",
+          "3 colheres de ketchup",
+          "1 colher de barbecue",
+          "1 pitada de páprica doce",
+          "1 pitada de salsa",
+          "1 pitada de orégano"
         ], 
-      "preparation": "Modo de preparo 1" 
+      "preparation":
+      [
+        "Misture todos os ingredientes em uma vasilha e depois aplique sobre a carne de frango.",
+        "Depois, deixe agir por cerca de 1 hora.",
+        "Leve para a churrasqueira e tome cuidado com o fogo muito alto para não queimar por fora enquanto dentro fica cru.",
+        "Deixe o fogo baixo com a tampa da churrasqueira fechada para defumar bem.",
+        "Após cerca de 20 a 30 minutos, retire se já estiver assado e sirva."
+      ]
     },
     { 
-      "name": "Coração", 
+      "name": "Coração (1 kg)", 
       "ingredients": 
         [
-          "Ingrediente 1",
-          "Ingrediente 2",
-          "Ingrediente 3"
+          "1 kg de coração de frango descongelado e limpo",
+          "1 xícara de chá de óleo",
+          "Sal grosso",
+          "3 dentes de alho amassados e picados"
         ], 
-      "preparation": "Modo de preparo 1" 
+      "preparation":
+      [
+        "Em uma bacia, coloque os corações de frango, adicione o óleo e o alho.",
+        "Salgue a gosto com o sal grosso e mexa bem.",
+        "Espete os corações em espeto de bambu ou no de sua preferência.",
+        "Asse-os em brasa sem fogo alto, por aproximadamente 30 minutos.",
+        "Está pronto para servir."
+      ]
     }
   ]
 }
