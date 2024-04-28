@@ -1,21 +1,33 @@
-import { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Text, View, TouchableOpacity, ScrollView, Image } from 'react-native'
-
 import MeatIcon from '../../../assets/meatIcon'
 import { styles } from './styles'
+import { CalculatorContext } from '../../contexts/CalculatorContext'
 
 export default function Meat() {
-    const [selectedButton, setSelectedButton] = useState('beef')
+    const { meats, selectedMeats, setSelectedMeats } = useContext(CalculatorContext)
 
-    const handleButtonPress = (button) => {
-        setSelectedButton(button)
+    const [selectedType, setSelectedType] = useState('beef')
+
+    const handleTypePress = (type) => {
+        setSelectedType(type)
     }
 
-    return(
+    const handleMeatPress = (meat) => {
+        const index = selectedMeats.findIndex((selectedMeat) => selectedMeat.name === meat.name)
+
+        if (index !== -1) {
+            setSelectedMeats(selectedMeats.filter((selectedMeat) => selectedMeat.name !== meat.name))
+        } else {
+            setSelectedMeats([...selectedMeats, meat])
+        }
+    }
+
+    return (
         <View>
             <View style={styles.header}>
                 <Text style={styles.headerTitle}>Carnes</Text>
-
+                
                 <Text style={styles.headerNumber}>02</Text>
             </View>
 
@@ -23,201 +35,69 @@ export default function Meat() {
                 <TouchableOpacity
                     style={[
                         styles.button,
-                        selectedButton === 'beef' ? styles.selectedButton : styles.unselectedButton
+                        selectedType === 'beef' ? styles.selectedButton : styles.unselectedButton
                     ]}
-                    onPress={() => handleButtonPress('beef')}
+                    onPress={() => handleTypePress('beef')}
                 >
-                    <MeatIcon selected={selectedButton === 'beef'} />
+                    <MeatIcon selected={selectedType === 'beef'} />
 
-                    <Text
-                        style={[
-                            styles.buttonText,
-                            selectedButton === 'beef' ? styles.selectedButtonText : styles.unselectedButtonText
-                        ]}
-                    >
-                        Bovina
-                    </Text>
+                    <Text style={[styles.buttonText, selectedType === 'beef' ? styles.selectedButtonText : styles.unselectedButtonText]}>Bovina</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     style={[
                         styles.button,
-                        selectedButton === 'pork' ? styles.selectedButton : styles.unselectedButton
+                        selectedType === 'pork' ? styles.selectedButton : styles.unselectedButton
                     ]}
-                    onPress={() => handleButtonPress('pork')}
+                    onPress={() => handleTypePress('pork')}
                 >
-                    <MeatIcon selected={selectedButton === 'pork'} />
-                    
-                    <Text
-                        style={[
-                            styles.buttonText,
-                            selectedButton === 'pork' ? styles.selectedButtonText : styles.unselectedButtonText
-                        ]}
-                    >
-                        Suína
-                    </Text>
+                    <MeatIcon selected={selectedType === 'pork'} />
+
+                    <Text style={[styles.buttonText, selectedType === 'pork' ? styles.selectedButtonText : styles.unselectedButtonText]}>Suína</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     style={[
                         styles.button,
-                        selectedButton === 'chicken' ? styles.selectedButton : styles.unselectedButton
+                        selectedType === 'chicken' ? styles.selectedButton : styles.unselectedButton
                     ]}
-                    onPress={() => handleButtonPress('chicken')}
+                    onPress={() => handleTypePress('chicken')}
                 >
-                    <MeatIcon selected={selectedButton === 'chicken'} />
-                    
-                    <Text
-                        style={[
-                            styles.buttonText,
-                            selectedButton === 'chicken' ? styles.selectedButtonText : styles.unselectedButtonText
-                        ]}
-                    >
-                        Frango
-                    </Text>
+                    <MeatIcon selected={selectedType === 'chicken'} />
+
+                    <Text style={[styles.buttonText, selectedType === 'chicken' ? styles.selectedButtonText : styles.unselectedButtonText]}>Frango</Text>
                 </TouchableOpacity>
             </View>
 
-            {selectedButton === 'beef' && (
-                <ScrollView
-                    horizontal
-                    contentContainerStyle={styles.options}
-                    showsHorizontalScrollIndicator={false}
-                >
-                    <TouchableOpacity style={styles.option}>
-                        <Image
-                            source={require('../../../assets/coal.png')}
-                            style={styles.optionImage}
-                        />
+            <ScrollView
+                horizontal
+                contentContainerStyle={styles.options}
+                showsHorizontalScrollIndicator={false}
+            >
+                {meats
+                    .filter((meat) => meat.type === selectedType)
+                    .map((meat, index) => (
+                        <TouchableOpacity
+                            key={index}
+                            style={[
+                                styles.option,
+                                selectedMeats.some((selectedMeat) => selectedMeat.name === meat.name) ? styles.selectedOption : null
+                            ]}
+                            onPress={() => handleMeatPress(meat)}
+                        >
+                            <Image
+                                source={meat.image}
+                                style={styles.optionImage}
+                            />
 
-                        <View>
-                            <Text style={[styles.optionText, styles.optionName]}>Picanha</Text>
-
-                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
-                        </View>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.option}>
-                        <Image
-                            source={require('../../../assets/coarseSalt.png')}
-                            style={styles.optionImage}
-                        />
-
-                        <View>
-                            <Text style={[styles.optionText, styles.optionName]}>Costela</Text>
-
-                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
-                        </View>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.option}>
-                        <Image
-                            source={require('../../../assets/coarseSalt.png')}
-                            style={styles.optionImage}
-                        />
-
-                        <View>
-                            <Text style={[styles.optionText, styles.optionName]}>Maminha</Text>
-
-                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
-                        </View>
-                    </TouchableOpacity>
-                </ScrollView>
-            )}
-
-            {selectedButton === 'pork' && (
-                <ScrollView
-                    horizontal
-                    contentContainerStyle={styles.options}
-                    showsHorizontalScrollIndicator={false}
-                >
-                    <TouchableOpacity style={styles.option}>
-                        <Image
-                            source={require('../../../assets/coal.png')}
-                            style={styles.optionImage}
-                        />
-
-                        <View>
-                            <Text style={[styles.optionText, styles.optionName]}>Lombinho</Text>
-
-                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
-                        </View>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.option}>
-                        <Image
-                            source={require('../../../assets/coarseSalt.png')}
-                            style={styles.optionImage}
-                        />
-
-                        <View>
-                            <Text style={[styles.optionText, styles.optionName]}>Pernil</Text>
-
-                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
-                        </View>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.option}>
-                        <Image
-                            source={require('../../../assets/coarseSalt.png')}
-                            style={styles.optionImage}
-                        />
-
-                        <View>
-                            <Text style={[styles.optionText, styles.optionName]}>Paleta</Text>
-
-                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
-                        </View>
-                    </TouchableOpacity>
-                </ScrollView>
-            )}
-
-            {selectedButton === 'chicken' && (
-                <ScrollView
-                    horizontal
-                    contentContainerStyle={styles.options}
-                    showsHorizontalScrollIndicator={false}
-                >
-                    <TouchableOpacity style={styles.option}>
-                        <Image
-                            source={require('../../../assets/coal.png')}
-                            style={styles.optionImage}
-                        />
-
-                        <View>
-                            <Text style={[styles.optionText, styles.optionName]}>Coxa</Text>
-
-                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
-                        </View>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.option}>
-                        <Image
-                            source={require('../../../assets/coarseSalt.png')}
-                            style={styles.optionImage}
-                        />
-
-                        <View>
-                            <Text style={[styles.optionText, styles.optionName]}>Asa</Text>
-
-                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
-                        </View>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.option}>
-                        <Image
-                            source={require('../../../assets/coarseSalt.png')}
-                            style={styles.optionImage}
-                        />
-
-                        <View>
-                            <Text style={[styles.optionText, styles.optionName]}>Coração</Text>
-
-                            <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
-                        </View>
-                    </TouchableOpacity>
-                </ScrollView>
-            )}
+                            <View>
+                                <Text style={[styles.optionText, styles.optionName]}>{meat.name}</Text>
+                                
+                                <Text style={[styles.optionText, styles.optionPrice]}>R${meat.price.toFixed(2)}/kg</Text>
+                            </View>
+                        </TouchableOpacity>
+                    ))}
+            </ScrollView>
         </View>
     )
 }

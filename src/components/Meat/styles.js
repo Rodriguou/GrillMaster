@@ -58,6 +58,9 @@ export const styles = StyleSheet.create({
         height: 165,
         justifyContent: 'space-between'
     },
+    selectedOption: {
+        borderColor: '#e8631a'
+    },
     optionImage: {
         alignSelf: 'center'
     },
