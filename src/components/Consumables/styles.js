@@ -1,19 +1,19 @@
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
-    header: {
+    componentHeader: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'
     },
-    headerTitle: {
+    componentTitle: {
         flex: 1,
         flexWrap: 'wrap',
         fontSize: 30,
         fontFamily: 'Archivo_700Bold',
         color: '#0b0e16'
     },
-    headerNumber: {
+    componentNumber: {
         fontSize: 27,
         fontFamily: 'Archivo_500Medium',
         color: '#e2e2e2'

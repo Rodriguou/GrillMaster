@@ -5,10 +5,10 @@ import { styles } from './styles'
 export default function Drinks() {
     return(
         <View>
-            <View style={styles.header}>
-                <Text style={styles.headerTitle}>Bebidas</Text>
+            <View style={styles.componentHeader}>
+                <Text style={styles.componentTitle}>Bebidas</Text>
 
-                <Text style={styles.headerNumber}>03</Text>
+                <Text style={styles.componentNumber}>03</Text>
             </View>
 
             <ScrollView

@@ -30,9 +30,10 @@ export default function Meat() {
 
     return (
         <View>
-            <View style={styles.header}>
-                <Text style={styles.headerTitle}>Carnes</Text>
-                <Text style={styles.headerNumber}>02</Text>
+            <View style={styles.componentHeader}>
+                <Text style={styles.componentTitle}>Carnes</Text>
+                
+                <Text style={styles.componentNumber}>02</Text>
             </View>
 
             <View style={styles.menu}>
@@ -44,6 +45,7 @@ export default function Meat() {
                     onPress={() => handleTypePress('beef')}
                 >
                     <MeatIcon selected={selectedType === 'beef'} />
+
                     <Text style={[styles.buttonText, selectedType === 'beef' ? styles.selectedButtonText : styles.unselectedButtonText]}>Bovina</Text>
                 </TouchableOpacity>
 
@@ -55,6 +57,7 @@ export default function Meat() {
                     onPress={() => handleTypePress('pork')}
                 >
                     <MeatIcon selected={selectedType === 'pork'} />
+
                     <Text style={[styles.buttonText, selectedType === 'pork' ? styles.selectedButtonText : styles.unselectedButtonText]}>Suína</Text>
                 </TouchableOpacity>
 
@@ -66,6 +69,7 @@ export default function Meat() {
                     onPress={() => handleTypePress('chicken')}
                 >
                     <MeatIcon selected={selectedType === 'chicken'} />
+
                     <Text style={[styles.buttonText, selectedType === 'chicken' ? styles.selectedButtonText : styles.unselectedButtonText]}>Frango</Text>
                 </TouchableOpacity>
             </View>
@@ -93,6 +97,7 @@ export default function Meat() {
 
                             <View>
                                 <Text style={[styles.optionText, styles.optionName]}>{meat.name}</Text>
+
                                 <Text style={[styles.optionText, styles.optionPrice]}>{formatPrice(meat.price)}/kg</Text>
                             </View>
                         </TouchableOpacity>

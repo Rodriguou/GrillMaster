@@ -34,10 +34,10 @@ export default function Guests() {
 
     return (
         <View>
-            <View style={styles.header}>
-                <Text style={styles.headerTitle}>Convidados</Text>
+            <View style={styles.componentHeader}>
+                <Text style={styles.componentTitle}>Convidados</Text>
 
-                <Text style={styles.headerNumber}>01</Text>
+                <Text style={styles.componentNumber}>01</Text>
             </View>
 
             <ScrollView

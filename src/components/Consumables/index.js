@@ -5,10 +5,10 @@ import { styles } from './styles'
 export default function Consumables() {
     return(
         <View>
-            <View style={styles.header}>
-                <Text style={styles.headerTitle}>Materiais de Consumo</Text>
+            <View style={styles.componentHeader}>
+                <Text style={styles.componentTitle}>Materiais de Consumo</Text>
 
-                <Text style={styles.headerNumber}>04</Text>
+                <Text style={styles.componentNumber}>04</Text>
             </View>
 
             <ScrollView
