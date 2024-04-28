@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Text, View, TouchableOpacity, ScrollView, Image } from 'react-native'
 import MeatIcon from '../../../assets/meatIcon'
+
 import { styles } from './styles'
 import { CalculatorContext } from '../../contexts/CalculatorContext'
 
@@ -23,11 +24,14 @@ export default function Meat() {
         }
     }
 
+    const formatPrice = (price) => {
+        return price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+    }
+
     return (
         <View>
             <View style={styles.header}>
                 <Text style={styles.headerTitle}>Carnes</Text>
-                
                 <Text style={styles.headerNumber}>02</Text>
             </View>
 
@@ -40,7 +44,6 @@ export default function Meat() {
                     onPress={() => handleTypePress('beef')}
                 >
                     <MeatIcon selected={selectedType === 'beef'} />
-
                     <Text style={[styles.buttonText, selectedType === 'beef' ? styles.selectedButtonText : styles.unselectedButtonText]}>Bovina</Text>
                 </TouchableOpacity>
 
@@ -52,7 +55,6 @@ export default function Meat() {
                     onPress={() => handleTypePress('pork')}
                 >
                     <MeatIcon selected={selectedType === 'pork'} />
-
                     <Text style={[styles.buttonText, selectedType === 'pork' ? styles.selectedButtonText : styles.unselectedButtonText]}>Suína</Text>
                 </TouchableOpacity>
 
@@ -64,7 +66,6 @@ export default function Meat() {
                     onPress={() => handleTypePress('chicken')}
                 >
                     <MeatIcon selected={selectedType === 'chicken'} />
-
                     <Text style={[styles.buttonText, selectedType === 'chicken' ? styles.selectedButtonText : styles.unselectedButtonText]}>Frango</Text>
                 </TouchableOpacity>
             </View>
@@ -92,8 +93,7 @@ export default function Meat() {
 
                             <View>
                                 <Text style={[styles.optionText, styles.optionName]}>{meat.name}</Text>
-                                
-                                <Text style={[styles.optionText, styles.optionPrice]}>R${meat.price.toFixed(2)}/kg</Text>
+                                <Text style={[styles.optionText, styles.optionPrice]}>{formatPrice(meat.price)}/kg</Text>
                             </View>
                         </TouchableOpacity>
                     ))}
