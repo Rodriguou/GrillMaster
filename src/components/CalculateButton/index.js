@@ -11,30 +11,36 @@ export default function CalculateButton() {
     const { guests, selectedMeats } = useContext(CalculatorContext)
 
     const calculateTotalPrice = () => {
-        // Inicializar o preço total como zero
-        let totalPrice = 0
-    
-        // Calcular a quantidade de carne por homem para cada tipo de carne
-        const meatPerMan = 600 / selectedMeats.length
-    
-        // Calcular o preço total para cada tipo de carne
+        // Cálculo do preço total de carnes
+        const totalMeatPrice = calculateKgPerMeat() * calculateMeatPrices()
+        return totalMeatPrice
+    }   
+
+    const calculateMeatPrices = () => {
+        // Inicializar o preço das carnes como zero
+        let meatPrices = 0 
         selectedMeats.forEach((meat) => {
-            // Calcular o preço total para cada tipo de carne
-            let meatPrice = 0
-    
-            // Calcular a quantidade de carne para este tipo
-            const meatQuantity = meatPerMan * guests.man
-    
-            // Calcular o preço total considerando a quantidade de carne
-            meatPrice = meat.price * (meatQuantity / 1000) // Convertendo para kg
-    
-            // Adicionar o preço da carne ao preço total
-            totalPrice += meatPrice
+            meatPrices += meat.price
         })
-    
-        totalPrice = totalPrice.toFixed(2)
-    
-        return totalPrice
+        return meatPrices
+    }  
+
+    const calculateTotalMeatKg = () => {
+        // Cálculo do total de quilogramas de carne
+        const totalMeatKg = 0.6 * guests.man + 0.4 * guests.woman + 0.25 * guests.kid
+        return totalMeatKg
+    }    
+
+    const calculateKgPerMeat = () => {
+        // Cálculo de quilogramas por carne
+        const kgPerMeat = calculateTotalMeatKg() / selectedMeats.length
+        return kgPerMeat
+    }    
+
+    const calculateIndividualPrice = () => {
+        // Cálculo do preço individual
+        const individualPrice = [{man: 0.6 * meatPrices}, {woman: 0.4 * meatPrices}, {kid: 0.25 * meatPrices}]
+        return individualPrice
     }    
 
     const handleCalculatePress = () => {
