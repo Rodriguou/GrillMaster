@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import Home from '../screens/Home'
+import Address from '../screens/Address'
 import Result from '../screens/Result'
 
 export default function Routes() {
@@ -11,6 +12,14 @@ export default function Routes() {
             <Stack.Screen
                 name='Home'
                 component={Home}
+                options={{
+                    headerShown: false
+                }}
+            />
+
+            <Stack.Screen
+                name='Address'
+                component={Address}
                 options={{
                     headerShown: false
                 }}
