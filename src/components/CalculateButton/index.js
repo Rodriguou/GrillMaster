@@ -58,7 +58,7 @@ export default function CalculateButton() {
     return (
         <View style={styles.container}>
             <TouchableOpacity style={styles.button} onPress={handleCalculatePress}>
-                <Text style={styles.buttonText}>CALCULAR</Text>
+                <Text style={styles.buttonText}>CONTINUAR</Text>
             </TouchableOpacity>
         </View>
     )

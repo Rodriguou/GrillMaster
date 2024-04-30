@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
         borderRadius: 9,
     },
     buttonText: {
-        fontFamily: 'Archivo_700Bold'
+        fontFamily: 'Archivo_700Bold',
+        color: '#fff'
     }
 })
