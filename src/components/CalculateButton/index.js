@@ -10,39 +10,63 @@ export default function CalculateButton() {
     
     const { guests, selectedMeats } = useContext(CalculatorContext)
 
+    const calculateTotalMeatKg = () => {
+        // Cálculo do total de quilogramas de carne
+        const totalMeatKg = 0.6 * guests.man + 0.4 * guests.woman + 0.25 * guests.kid
+
+        return totalMeatKg
+    }
+
+    const calculateKgPerMeat = () => {
+        // Cálculo de quilogramas por carne
+        const totalKgPerMeat = calculateTotalMeatKg() / selectedMeats.length
+
+        return totalKgPerMeat
+    }
+    
+    const calculateIndividualPrice = () => {
+        // Cálculo do preço individual
+        const kgPerMeat = {
+            man: 0.6 / selectedMeats.length,
+            woman: 0.4 / selectedMeats.length,
+            kid: 0.25 / selectedMeats.length
+        }
+
+        const individualPrice = {}
+
+        // Iterar sobre os tipos de convidados que têm pelo menos 1 pessoa
+        Object.keys(guests).forEach((type) => {
+            if (guests[type] > 0) {
+                individualPrice[type] = 0
+
+                // Iterar sobre as carnes selecionadas
+                selectedMeats.forEach((meat) => {
+                    const meatPricePerKg = meat.price
+
+                    individualPrice[type] += kgPerMeat[type] * meatPricePerKg
+                })
+            }
+        })
+
+        return individualPrice
+    }
+
     const calculateTotalPrice = () => {
         // Cálculo do preço total de carnes
         const totalMeatPrice = calculateKgPerMeat() * calculateMeatPrices()
         return totalMeatPrice
-    }   
+    }
 
     const calculateMeatPrices = () => {
         // Inicializar o preço das carnes como zero
         let meatPrices = 0 
+
         selectedMeats.forEach((meat) => {
             meatPrices += meat.price
         })
+
         return meatPrices
-    }  
-
-    const calculateTotalMeatKg = () => {
-        // Cálculo do total de quilogramas de carne
-        const totalMeatKg = 0.6 * guests.man + 0.4 * guests.woman + 0.25 * guests.kid
-        return totalMeatKg
-    }    
-
-    const calculateKgPerMeat = () => {
-        // Cálculo de quilogramas por carne
-        const kgPerMeat = calculateTotalMeatKg() / selectedMeats.length
-        return kgPerMeat
-    }    
-
-    const calculateIndividualPrice = () => {
-        // Cálculo do preço individual
-        const individualPrice = [{man: 0.6 * meatPrices}, {woman: 0.4 * meatPrices}, {kid: 0.25 * meatPrices}]
-        return individualPrice
-    }    
-
+    }
     const handleCalculatePress = () => {
         const totalGuests = guests.man + guests.woman + guests.kid
 
@@ -51,7 +75,11 @@ export default function CalculateButton() {
         } else if (selectedMeats.length === 0) {
             Alert.alert('Nenhuma carne selecionada', 'Por favor, selecione pelo menos uma carne antes de calcular.')
         } else {
-            navigation.navigate('Result', { totalPrice: calculateTotalPrice() })
+            const totalKgPerMeat = calculateKgPerMeat()
+            
+            const individualPrice = calculateIndividualPrice()
+
+            navigation.navigate('Result', { selectedMeats, totalKgPerMeat, individualPrice })
         }
     }
 
