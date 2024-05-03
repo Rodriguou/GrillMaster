@@ -1,9 +1,27 @@
+import React, { useContext } from 'react'
 import { Text, View, ScrollView, TouchableOpacity, Image } from 'react-native'
 
 import { styles } from './styles'
+import { CalculatorContext } from '../../contexts/CalculatorContext'
 
 export default function Consumables() {
-    return(
+    const { consumables, selectedConsumables, setSelectedConsumables } = useContext(CalculatorContext)
+
+    const handleConsumablePress = (consumable) => {
+        const index = selectedConsumables.findIndex((selectedConsumable) => selectedConsumable.name === consumable.name)
+
+        if (index !== -1) {
+            setSelectedConsumables(selectedConsumables.filter((selectedConsumable) => selectedConsumable.name !== consumable.name))
+        } else {
+            setSelectedConsumables([...selectedConsumables, consumable])
+        }
+    }
+
+    const formatPrice = (price) => {
+        return price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+    }
+
+    return (
         <View>
             <View style={styles.componentHeader}>
                 <Text style={styles.componentTitle}>Materiais de Consumo</Text>
@@ -16,44 +34,27 @@ export default function Consumables() {
                 contentContainerStyle={styles.options}
                 showsHorizontalScrollIndicator={false}
             >
-                <TouchableOpacity style={styles.option}>
-                    <Image
-                        source={require('../../../assets/coal.png')}
-                        style={styles.optionImage}
-                    />
+                {consumables.map((consumable, index) => (
+                    <TouchableOpacity
+                        key={index}
+                        style={[
+                            styles.option,
+                            selectedConsumables.some((selectedConsumable) => selectedConsumable.name === consumable.name) ? styles.selectedOption : null
+                        ]}
+                        onPress={() => handleConsumablePress(consumable)}
+                    >
+                        <Image
+                            source={consumable.image}
+                            style={styles.optionImage}
+                        />
 
-                    <View>
-                        <Text style={[styles.optionText, styles.optionName]}>Carvão</Text>
+                        <View>
+                            <Text style={[styles.optionText, styles.optionName]}>{consumable.name}</Text>
 
-                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
-                    </View>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.option}>
-                    <Image
-                        source={require('../../../assets/coarseSalt.png')}
-                        style={styles.optionImage}
-                    />
-
-                    <View>
-                        <Text style={[styles.optionText, styles.optionName]}>Sal grosso</Text>
-
-                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
-                    </View>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.option}>
-                    <Image
-                        source={require('../../../assets/coarseSalt.png')}
-                        style={styles.optionImage}
-                    />
-
-                    <View>
-                        <Text style={[styles.optionText, styles.optionName]}>Molhos e temperos</Text>
-
-                        <Text style={[styles.optionText, styles.optionPrice]}>R$32,90</Text>
-                    </View>
-                </TouchableOpacity>
+                            <Text style={[styles.optionText, styles.optionPrice]}>{formatPrice(consumable.price)}</Text>
+                        </View>
+                    </TouchableOpacity>
+                ))}
             </ScrollView>
         </View>
     )

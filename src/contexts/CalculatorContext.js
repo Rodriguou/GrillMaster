@@ -21,10 +21,38 @@ export default function CalculatorProvider({ children }) {
         { name: 'Coração', price: 35.00, type: 'chicken', image: require('../../assets/coal.png') }
     ]
 
+    const drinks = [
+        { name: 'Água', price: 32.90, image: require('../../assets/water.png') },
+        { name: 'Refrigerante', price: 32.90, image: require('../../assets/soda.png') },
+        { name: 'Cerveja', price: 32.90, image: require('../../assets/coarseSalt.png') },
+    ]
+
+    const consumables = [
+        { name: 'Carvão', price: 32.90, image: require('../../assets/coal.png') },
+        { name: 'Sal grosso', price: 32.90, image: require('../../assets/coarseSalt.png') },
+        { name: 'Molhos e temperos', price: 32.90, image: require('../../assets/coarseSalt.png') },
+    ]
+
     const [selectedMeats, setSelectedMeats] = useState([])
+    const [selectedDrinks, setSelectedDrinks] = useState([])
+    const [selectedConsumables, setSelectedConsumables] = useState([])
 
     return (
-        <CalculatorContext.Provider value={{ guests, setGuests, meats, selectedMeats, setSelectedMeats }}>
+        <CalculatorContext.Provider
+            value={{
+                guests,
+                setGuests,
+                meats,
+                drinks,
+                consumables,
+                selectedMeats,
+                setSelectedMeats,
+                selectedDrinks,
+                setSelectedDrinks,
+                selectedConsumables,
+                setSelectedConsumables
+            }}
+        >
             {children}
         </CalculatorContext.Provider>
     )
