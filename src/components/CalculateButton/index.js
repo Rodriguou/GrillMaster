@@ -26,25 +26,17 @@ export default function CalculateButton() {
     
     const calculateIndividualPrice = () => {
         // Cálculo do preço individual
-        const kgPerMeat = {
-            man: 0.6 / selectedMeats.length,
-            woman: 0.4 / selectedMeats.length,
-            kid: 0.25 / selectedMeats.length
+        const individualPrice = {
+            man: calculateMeatPrices() * 0.6 / selectedMeats.length,
+            woman: calculateMeatPrices() * 0.4 / selectedMeats.length,
+            kid: calculateMeatPrices() * 0.25 / selectedMeats.length
         }
-
-        const individualPrice = {}
 
         // Iterar sobre os tipos de convidados que têm pelo menos 1 pessoa
         Object.keys(guests).forEach((type) => {
             if (guests[type] > 0) {
-                individualPrice[type] = 0
+                delete individualPrice[type]
 
-                // Iterar sobre as carnes selecionadas
-                selectedMeats.forEach((meat) => {
-                    const meatPricePerKg = meat.price
-
-                    individualPrice[type] += kgPerMeat[type] * meatPricePerKg
-                })
             }
         })
 
