@@ -8,7 +8,7 @@ import { styles } from './styles'
 export default function CalculateButton() {
     const navigation = useNavigation()
     
-    const { guests, selectedMeats } = useContext(CalculatorContext)
+    const { guests, selectedMeats, selectedDrinks } = useContext(CalculatorContext)
 
     const calculateTotalMeatKg = () => {
         // Cálculo do total de quilogramas de carne
@@ -23,6 +23,37 @@ export default function CalculateButton() {
 
         return totalKgPerMeat
     }
+
+    const calculateTotalDrinkVolume = () => {
+        let totalVolumePerDrink = {
+            'Água': 0,
+            'Refrigerante': 0,
+            'Cerveja': 0
+        }
+
+        selectedDrinks.forEach((drink) => {
+            if (drink.name === 'Água') {
+                totalVolumePerDrink['Água'] += (guests.man + guests.woman + guests.kid) * 1.5
+            } else if (drink.name === 'Refrigerante') {
+                totalVolumePerDrink['Refrigerante'] += (guests.man + guests.woman + guests.kid) * 0.35 * 4
+            } else if (drink.name === 'Cerveja') {
+                totalVolumePerDrink['Cerveja'] += (guests.man + guests.woman) * 0.35 * 4
+            }
+        })
+
+        return totalVolumePerDrink
+    }
+    
+    const calculateMeatPrices = () => {
+        // Inicializar o preço das carnes como zero
+        let meatPrices = 0 
+
+        selectedMeats.forEach((meat) => {
+            meatPrices += meat.price
+        })
+
+        return meatPrices
+    }
     
     const calculateIndividualPrice = () => {
         // Cálculo do preço individual
@@ -34,7 +65,7 @@ export default function CalculateButton() {
 
         // Iterar sobre os tipos de convidados que têm pelo menos 1 pessoa
         Object.keys(guests).forEach((type) => {
-            if (guests[type] == 0) {
+            if (guests[type] === 0) {
                 delete individualPrice[type]
             }
         })
@@ -48,16 +79,6 @@ export default function CalculateButton() {
         return totalMeatPrice
     }
 
-    const calculateMeatPrices = () => {
-        // Inicializar o preço das carnes como zero
-        let meatPrices = 0 
-
-        selectedMeats.forEach((meat) => {
-            meatPrices += meat.price
-        })
-
-        return meatPrices
-    }
     const handleCalculatePress = () => {
         const totalGuests = guests.man + guests.woman + guests.kid
 
@@ -67,10 +88,12 @@ export default function CalculateButton() {
             Alert.alert('Nenhuma carne selecionada', 'Por favor, selecione pelo menos uma carne antes de calcular.')
         } else {
             const totalKgPerMeat = calculateKgPerMeat()
+
+            const totalVolumePerDrink = calculateTotalDrinkVolume()
             
             const individualPrice = calculateIndividualPrice()
 
-            navigation.navigate('Result', { selectedMeats, totalKgPerMeat, individualPrice })
+            navigation.navigate('Result', { selectedMeats, selectedDrinks, totalKgPerMeat, totalVolumePerDrink, individualPrice })
         }
     }
 
