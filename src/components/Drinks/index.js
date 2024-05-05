@@ -51,7 +51,7 @@ export default function Drinks() {
                         <View>
                             <Text style={[styles.optionText, styles.optionName]}>{drink.name}</Text>
 
-                            <Text style={[styles.optionText, styles.optionPrice]}>{formatPrice(drink.price)}</Text>
+                            <Text style={[styles.optionText, styles.optionPrice]}>{`${formatPrice(drink.price)} (${drink.volume})`}</Text>
                         </View>
                     </TouchableOpacity>
                 ))}
