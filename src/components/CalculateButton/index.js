@@ -34,9 +34,8 @@ export default function CalculateButton() {
 
         // Iterar sobre os tipos de convidados que têm pelo menos 1 pessoa
         Object.keys(guests).forEach((type) => {
-            if (guests[type] > 0) {
+            if (guests[type] == 0) {
                 delete individualPrice[type]
-
             }
         })
 
