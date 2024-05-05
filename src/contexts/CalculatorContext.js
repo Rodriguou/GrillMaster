@@ -22,15 +22,15 @@ export default function CalculatorProvider({ children }) {
     ]
 
     const drinks = [
-        { name: 'Água', price: 32.90, image: require('../../assets/water.png') },
-        { name: 'Refrigerante', price: 32.90, image: require('../../assets/soda.png') },
-        { name: 'Cerveja', price: 32.90, image: require('../../assets/coarseSalt.png') },
+        { name: 'Água', price: 6.00, image: require('../../assets/water.png') },
+        { name: 'Refrigerante', price: 4.00, image: require('../../assets/soda.png') },
+        { name: 'Cerveja', price: 4.50, image: require('../../assets/coarseSalt.png') },
     ]
 
     const consumables = [
-        { name: 'Carvão', price: 32.90, image: require('../../assets/coal.png') },
-        { name: 'Sal grosso', price: 32.90, image: require('../../assets/coarseSalt.png') },
-        { name: 'Molhos e temperos', price: 32.90, image: require('../../assets/coarseSalt.png') },
+        { name: 'Carvão', price: 9.00, image: require('../../assets/coal.png') },
+        { name: 'Sal grosso', price: 5.90, image: require('../../assets/coarseSalt.png') },
+        { name: 'Molhos e temperos', price: 19.00, image: require('../../assets/coarseSalt.png') },
     ]
 
     const [selectedMeats, setSelectedMeats] = useState([])
