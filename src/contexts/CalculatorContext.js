@@ -3,11 +3,28 @@ import React, { useState, createContext } from 'react'
 export const CalculatorContext = createContext()
 
 export default function CalculatorProvider({ children }) {
+
+    const calculateTotalMeatKg = () => {
+        // Cálculo do total de quilogramas de carne
+        const totalMeatKg = 0.6 * guests.man + 0.4 * guests.woman + 0.25 * guests.kid
+
+        return totalMeatKg
+    }
+
+    const calculateBarbecueSauceQuantity = () => {
+        const BarbecueSauceQuantity = Math.ceil(calculateTotalMeatKg() * 150 / 200)
+
+        return BarbecueSauceQuantity
+    }
+
     const [guests, setGuests] = useState({
         man: 0,
         woman: 0,
         kid: 0
     })
+
+    const coalQuantity = calculateTotalMeatKg()
+    const BarbecueSauceQuantity = calculateBarbecueSauceQuantity()
 
     const meats = [
         { name: 'Picanha', price: 58.00, type: 'beef', image: require('../../assets/coal.png') },
@@ -28,9 +45,9 @@ export default function CalculatorProvider({ children }) {
     ]
 
     const consumables = [
-        { name: 'Carvão', price: 9.00, image: require('../../assets/coal.png') }, // preço para cada kg de carvão, 1kg de carvão para 1kg de carne
-        { name: 'Sal grosso', price: 5.90, image: require('../../assets/coarseSalt.png') },
-        { name: 'Molho barbecue', price: 19.00, image: require('../../assets/coarseSalt.png') }, // preço para cada 200ml, uso de 150ml para cada kg de carne
+        { name: 'Carvão', price: 9.00, image: require('../../assets/coal.png'), quantity: coalQuantity },
+        { name: 'Sal grosso', price: 5.90, image: require('../../assets/coarseSalt.png'), quantity: 1},
+        { name: 'Molho barbecue', price: 19.00, image: require('../../assets/coarseSalt.png'), quantity: BarbecueSauceQuantity },
     ]   
 
     const [selectedMeats, setSelectedMeats] = useState([])

@@ -8,7 +8,7 @@ import { styles } from './styles'
 export default function CalculateButton() {
     const navigation = useNavigation()
     
-    const { guests, selectedMeats, selectedDrinks } = useContext(CalculatorContext)
+    const { guests, selectedMeats, selectedDrinks, selectedConsumables } = useContext(CalculatorContext)
 
     const calculateTotalMeatKg = () => {
         // Cálculo do total de quilogramas de carne
@@ -43,6 +43,36 @@ export default function CalculateButton() {
         return volumePerDrink
     }
     
+    const calculateConsumablesPrices = () => {
+        // Cálculo do preço dos consumíveis
+        const consumablePrices = {
+            'Carvão': 0,
+            'Sal grosso': 0,
+            'Molho barbecue': 0 
+        }
+        console.log(selectedConsumables)
+        selectedConsumables.forEach((consumable) => {
+            if (consumable.quantity === 0) {
+                delete consumablePrices[consumable.name]
+            }
+            else {
+                consumablePrices[consumable.name] = consumable.quantity * consumable.price
+            }   
+        })
+
+        return consumablePrices
+    }
+    
+    const calculateTotalConsumablesPrice = () => {
+        let totalConsumablesPrice = 0
+
+        Object.values(calculateConsumablesPrices()).forEach((consumablePrice) =>
+            totalConsumablesPrice += consumablePrice
+        )
+
+        return totalConsumablesPrice
+    }
+    
     const calculateTotalDrinkVolume = () => {
         let totalDrinkVolume = 0
 
@@ -62,6 +92,24 @@ export default function CalculateButton() {
         })
 
         return meatPrices
+    }
+    
+    const calculateIndividualConsumablesPrice = () => { // verificar se o cálculo está correto
+        // Cálculo do preço individual
+        const individualConsumablePrice = {
+            man: calculateTotalConsumablesPrice() * 0.6,
+            woman: calculateTotalConsumablesPrice() * 0.4,
+            kid: calculateTotalConsumablesPrice() * 0.25
+        }
+
+        // Iterar sobre os tipos de convidados que têm pelo menos 1 pessoa
+        Object.keys(guests).forEach((type) => {
+            if (guests[type] === 0) {
+                delete individualConsumablePrice[type]
+            }
+        })
+
+        return individualConsumablePrice
     }
     
     const calculateIndividualMeatPrice = () => {
@@ -110,6 +158,7 @@ export default function CalculateButton() {
         // Cálculo do preço individual
         const individualDrinksPrice = calculateIndividualDrinksPrice()
         const individualMeatPrice = calculateIndividualMeatPrice()
+        const individualConsumablesPrice = calculateIndividualConsumablesPrice()
         const individualPrice = {
             man: 0,
             woman: 0,
@@ -120,10 +169,10 @@ export default function CalculateButton() {
                 delete individualPrice[type]
             }
             else {
-                individualPrice[type] = individualDrinksPrice[type] + individualMeatPrice[type]
+                individualPrice[type] = individualDrinksPrice[type] + individualMeatPrice[type] + individualConsumablesPrice[type]
             }
         })
-                
+
         return individualPrice
     }
 
