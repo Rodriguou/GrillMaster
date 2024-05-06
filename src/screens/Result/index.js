@@ -12,7 +12,12 @@ export default function Result({ route }) {
     }
 
     const formatLiters = (volume) => {
-        return volume.toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + ' l'
+        if (volume >= 1000) {
+            return (volume / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + ' l'
+        }
+        else {
+            return volume.toLocaleString('pt-BR') + ' ml'
+        }
     }
     
     const formatPrice = (price) => {

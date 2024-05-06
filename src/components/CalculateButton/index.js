@@ -26,18 +26,17 @@ export default function CalculateButton() {
 
     const calculateTotalDrinkVolume = () => {
         let totalVolumePerDrink = {
-            'Água': 0,
+            'Cerveja': 0,
             'Refrigerante': 0,
-            'Cerveja': 0
+            'Água': 0
         }
 
         selectedDrinks.forEach((drink) => {
-            if (drink.name === 'Água') {
-                totalVolumePerDrink['Água'] += (guests.man + guests.woman + guests.kid) * 1.5
-            } else if (drink.name === 'Refrigerante') {
-                totalVolumePerDrink['Refrigerante'] += (guests.man + guests.woman + guests.kid) * 0.35 * 4
-            } else if (drink.name === 'Cerveja') {
-                totalVolumePerDrink['Cerveja'] += (guests.man + guests.woman) * 0.35 * 4
+            if (drink.alcoholic) {
+                totalVolumePerDrink[drink.name] = (guests.man + guests.woman) * drink.volume * drink.servings
+            }
+            else {
+                totalVolumePerDrink[drink.name] = (guests.man + guests.woman + guests.kid) * drink.volume * drink.servings
             }
         })
 

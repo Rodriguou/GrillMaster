@@ -20,6 +20,15 @@ export default function Drinks() {
     const formatPrice = (price) => {
         return price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
     }
+    
+    const formatLiters = (volume) => {
+        if (volume >= 1000) {
+            return (volume / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + ' l'
+        }
+        else {
+            return volume.toLocaleString('pt-BR') + ' ml'
+        }
+    }
 
     return (
         <View>
@@ -51,7 +60,7 @@ export default function Drinks() {
                         <View>
                             <Text style={[styles.optionText, styles.optionName]}>{drink.name}</Text>
 
-                            <Text style={[styles.optionText, styles.optionPrice]}>{`${formatPrice(drink.price)} (${drink.volume})`}</Text>
+                            <Text style={[styles.optionText, styles.optionPrice]}>{`${formatPrice(drink.price)} (${formatLiters(drink.volume)})`}</Text>
                         </View>
                     </TouchableOpacity>
                 ))}

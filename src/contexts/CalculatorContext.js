@@ -22,9 +22,9 @@ export default function CalculatorProvider({ children }) {
     ]
 
     const drinks = [
-        { name: 'Água', price: 6.00, image: require('../../assets/water.png'), volume: '1,5l' },
-        { name: 'Refrigerante', price: 4.00, image: require('../../assets/soda.png'), volume: '350ml' },
-        { name: 'Cerveja', price: 4.50, image: require('../../assets/coarseSalt.png'), volume: '350ml' },
+        { name: 'Água', price: 6.00, image: require('../../assets/water.png'), volume: 1500, servings: 1, alcoholic: false },
+        { name: 'Refrigerante', price: 4.00, image: require('../../assets/soda.png'), volume: 350, servings: 4, alcoholic: false },
+        { name: 'Cerveja', price: 4.50, image: require('../../assets/coarseSalt.png'), volume: 350, servings: 4, alcoholic: true },
     ]
 
     const consumables = [
