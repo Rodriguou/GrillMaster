@@ -1,14 +1,14 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text, ScrollView, View } from 'react-native'
 
 import Header from '../../components/Header'
 import { styles } from './styles'
 
 export default function Result({ route }) {
-    const { selectedMeats, selectedDrinks, totalKgPerMeat, totalVolumePerDrink, individualPrice } = route.params
+    const { selectedMeats, selectedDrinks, totalMeatKg, totalDrinkVolume, totalKgPerMeat, volumePerDrink, individualPrice } = route.params
 
     const formatKg = (number) => {
-        return number.toLocaleString('pt-BR', { maximumFractionDigits: 2 })
+        return number.toLocaleString('pt-BR', { maximumFractionDigits: 2 }) + ' kg'
     }
 
     const formatLiters = (volume) => {
@@ -25,7 +25,7 @@ export default function Result({ route }) {
     }
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Header showMenu={false} />
             
             <Text style={styles.componentTitle}>RESULTADO</Text>
@@ -39,9 +39,20 @@ export default function Result({ route }) {
                 >
                     <Text style={styles.resultText}>{meat.name}</Text>
 
-                    <Text style={styles.resultText}>{formatKg(totalKgPerMeat)} kg</Text>
+                    <Text style={styles.resultText}>{formatKg(totalKgPerMeat)}</Text>
                 </View>
             ))}
+
+            <Text style={styles.resultTitle}>Consumo Total de Carnes</Text>
+            
+            <View
+                style={styles.resultContent}
+            >
+                <Text style={styles.resultText}>Total</Text>
+
+                <Text style={styles.resultText}>{formatKg(totalMeatKg)}</Text>
+            </View>
+
 
             <Text style={styles.resultTitle}>Consumo Individual de Bebidas</Text>
 
@@ -52,9 +63,19 @@ export default function Result({ route }) {
                 >
                     <Text style={styles.resultText}>{drink.name}</Text>
 
-                    <Text style={styles.resultText}>{formatLiters(totalVolumePerDrink[drink.name])}</Text>
+                    <Text style={styles.resultText}>{formatLiters(volumePerDrink[drink.name])}</Text>
                 </View>
             ))}
+
+            <Text style={styles.resultTitle}>Consumo Total de Bebidas</Text>
+
+            <View
+                style={styles.resultContent}
+            >
+                <Text style={styles.resultText}>Total</Text>
+
+                <Text style={styles.resultText}>{formatLiters(totalDrinkVolume)}</Text>
+            </View>
 
             <Text style={styles.resultTitle}>Valor Total de Rateio por Tipo de Convidado</Text>
 
@@ -68,6 +89,6 @@ export default function Result({ route }) {
                     <Text style={styles.resultText}>{formatPrice(individualPrice[type])}</Text>
                 </View>
             ))}
-        </View>
+        </ScrollView>
     )
 }

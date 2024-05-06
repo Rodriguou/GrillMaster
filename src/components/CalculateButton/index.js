@@ -24,8 +24,8 @@ export default function CalculateButton() {
         return totalKgPerMeat
     }
 
-    const calculateTotalDrinkVolume = () => {
-        let totalVolumePerDrink = {
+    const calculateVolumePerDrink = () => {
+        let volumePerDrink = {
             'Cerveja': 0,
             'Refrigerante': 0,
             'Água': 0
@@ -33,19 +33,29 @@ export default function CalculateButton() {
 
         selectedDrinks.forEach((drink) => {
             if (drink.alcoholic) {
-                totalVolumePerDrink[drink.name] = (guests.man + guests.woman) * drink.volume * drink.servings
+                volumePerDrink[drink.name] = (guests.man + guests.woman) * drink.volume * drink.servings
             }
             else {
-                totalVolumePerDrink[drink.name] = (guests.man + guests.woman + guests.kid) * drink.volume * drink.servings
+                volumePerDrink[drink.name] = (guests.man + guests.woman + guests.kid) * drink.volume * drink.servings
             }
         })
 
-        return totalVolumePerDrink
+        return volumePerDrink
     }
     
+    const calculateTotalDrinkVolume = () => {
+        let totalDrinkVolume = 0
+
+        Object.values(calculateVolumePerDrink()).forEach((drinkVolume) =>
+            totalDrinkVolume += drinkVolume
+        )
+
+        return totalDrinkVolume
+    }
+
     const calculateMeatPrices = () => {
         // Inicializar o preço das carnes como zero
-        let meatPrices = 0 
+        let meatPrices = 0
 
         selectedMeats.forEach((meat) => {
             meatPrices += meat.price
@@ -131,13 +141,17 @@ export default function CalculateButton() {
         } else if (selectedMeats.length === 0) {
             Alert.alert('Nenhuma carne selecionada', 'Por favor, selecione pelo menos uma carne antes de calcular.')
         } else {
+            const totalMeatKg = calculateTotalMeatKg()
+
+            const totalDrinkVolume = calculateTotalDrinkVolume()
+
             const totalKgPerMeat = calculateKgPerMeat()
 
-            const totalVolumePerDrink = calculateTotalDrinkVolume()
+            const volumePerDrink = calculateVolumePerDrink()
             
             const individualPrice = calculateIndividualPrice()
 
-            navigation.navigate('Result', { selectedMeats, selectedDrinks, totalKgPerMeat, totalVolumePerDrink, individualPrice })
+            navigation.navigate('Result', { selectedMeats, selectedDrinks, totalMeatKg, totalDrinkVolume, totalKgPerMeat, volumePerDrink, individualPrice })
         }
     }
 

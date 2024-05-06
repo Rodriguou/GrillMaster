@@ -12,13 +12,13 @@ export default function CalculatorProvider({ children }) {
     const meats = [
         { name: 'Picanha', price: 58.00, type: 'beef', image: require('../../assets/coal.png') },
         { name: 'Costela', price: 27.00, type: 'beef', image: require('../../assets/soda.png') },
-        { name: 'Maminha', price: 43.00, type: 'beef', image: require('../../assets/coal.png') },
+        { name: 'Alcatra', price: 43.00, type: 'beef', image: require('../../assets/coal.png') },
         { name: 'Lombinho', price: 36.00, type: 'pork', image: require('../../assets/coal.png') },
         { name: 'Pernil', price: 28.00, type: 'pork', image: require('../../assets/coal.png') },
-        { name: 'Paleta', price: 20.00, type: 'pork', image: require('../../assets/coal.png') },
+        { name: 'Linguiça toscana', price: 28.00, type: 'pork', image: require('../../assets/coal.png') },
         { name: 'Coxa', price: 14.00, type: 'chicken', image: require('../../assets/coal.png') },
         { name: 'Asa', price: 14.00, type: 'chicken', image: require('../../assets/coal.png') },
-        { name: 'Coração', price: 35.00, type: 'chicken', image: require('../../assets/coal.png') }
+        { name: 'Peito', price: 23.00, type: 'chicken', image: require('../../assets/coal.png') }
     ]
 
     const drinks = [
@@ -28,10 +28,10 @@ export default function CalculatorProvider({ children }) {
     ]
 
     const consumables = [
-        { name: 'Carvão', price: 9.00, image: require('../../assets/coal.png') },
+        { name: 'Carvão', price: 9.00, image: require('../../assets/coal.png') }, // preço para cada kg de carvão, 1kg de carvão para 1kg de carne
         { name: 'Sal grosso', price: 5.90, image: require('../../assets/coarseSalt.png') },
-        { name: 'Molhos e temperos', price: 19.00, image: require('../../assets/coarseSalt.png') },
-    ]
+        { name: 'Molho barbecue', price: 19.00, image: require('../../assets/coarseSalt.png') }, // preço para cada 200ml, uso de 150ml para cada kg de carne
+    ]   
 
     const [selectedMeats, setSelectedMeats] = useState([])
     const [selectedDrinks, setSelectedDrinks] = useState([])
