@@ -56,6 +56,7 @@ export default function CalculateButton() {
     
     const calculateIndividualPrice = () => {
         // Cálculo do preço individual
+        console.log(calculateIndividualDrinksPrice())
         const individualPrice = {
             man: calculateMeatPrices() * 0.6 / selectedMeats.length,
             woman: calculateMeatPrices() * 0.4 / selectedMeats.length,
@@ -71,8 +72,32 @@ export default function CalculateButton() {
 
         return individualPrice
     }
+    
+    const calculateIndividualDrinksPrice = () => {
+        // Cálculo do preço individual
+        let individualPrice = {
+            man: 0,
+            woman: 0,
+            kid: 0
+        }
 
-    const calculateTotalPrice = () => {
+        Object.keys(guests).forEach((type) => {
+            if (guests[type] === 0){
+                delete individualPrice[type]
+            }
+            else {
+                selectedDrinks.forEach((drink) => {
+                    if(!(drink.alcoholic && type === 'kid')) {
+                        individualPrice[type] += drink.servings * drink.price
+                    } 
+                })
+            }
+        })
+        
+        return individualPrice
+    }
+
+    const calculateTotalMeatPrice = () => {
         // Cálculo do preço total de carnes
         const totalMeatPrice = calculateKgPerMeat() * calculateMeatPrices()
         return totalMeatPrice
