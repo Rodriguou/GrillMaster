@@ -54,10 +54,9 @@ export default function CalculateButton() {
         return meatPrices
     }
     
-    const calculateIndividualPrice = () => {
+    const calculateIndividualMeatPrice = () => {
         // Cálculo do preço individual
-        console.log(calculateIndividualDrinksPrice())
-        const individualPrice = {
+        const individualMeatPrice = {
             man: calculateMeatPrices() * 0.6 / selectedMeats.length,
             woman: calculateMeatPrices() * 0.4 / selectedMeats.length,
             kid: calculateMeatPrices() * 0.25 / selectedMeats.length
@@ -66,34 +65,55 @@ export default function CalculateButton() {
         // Iterar sobre os tipos de convidados que têm pelo menos 1 pessoa
         Object.keys(guests).forEach((type) => {
             if (guests[type] === 0) {
-                delete individualPrice[type]
+                delete individualMeatPrice[type]
             }
         })
 
-        return individualPrice
+        return individualMeatPrice
     }
     
     const calculateIndividualDrinksPrice = () => {
         // Cálculo do preço individual
-        let individualPrice = {
+        let individualDrinksPrice = {
             man: 0,
             woman: 0,
             kid: 0
         }
-
+        
         Object.keys(guests).forEach((type) => {
             if (guests[type] === 0){
-                delete individualPrice[type]
+                delete individualDrinksPrice[type]
             }
             else {
                 selectedDrinks.forEach((drink) => {
                     if(!(drink.alcoholic && type === 'kid')) {
-                        individualPrice[type] += drink.servings * drink.price
+                        individualDrinksPrice[type] += drink.servings * drink.price
                     } 
                 })
             }
         })
         
+        return individualDrinksPrice
+    }
+    
+    const calculateIndividualPrice = () => {
+        // Cálculo do preço individual
+        const individualDrinksPrice = calculateIndividualDrinksPrice()
+        const individualMeatPrice = calculateIndividualMeatPrice()
+        const individualPrice = {
+            man: 0,
+            woman: 0,
+            kid: 0
+        }
+        Object.keys(guests).forEach((type) => {
+            if (guests[type] === 0) {
+                delete individualPrice[type]
+            }
+            else {
+                individualPrice[type] = individualDrinksPrice[type] + individualMeatPrice[type]
+            }
+        })
+                
         return individualPrice
     }
 
