@@ -9,7 +9,7 @@ import CalculatorProvider from './src/contexts/CalculatorContext'
 export default function App() {
     const [fontsLoaded] = useFonts({ Archivo_400Regular, Archivo_500Medium, Archivo_600SemiBold, Archivo_700Bold })
 
-    return(
+    return (
         <NavigationContainer>
             <CalculatorProvider>
                 <StatusBar backgroundColor={'#fff'} barStyle={'dark-content'} />
