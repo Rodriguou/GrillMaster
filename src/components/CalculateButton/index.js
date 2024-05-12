@@ -7,7 +7,7 @@ import { styles } from './styles'
 
 export default function CalculateButton() {
     const navigation = useNavigation()
-    
+
     const { guests, selectedMeats, selectedDrinks } = useContext(CalculatorContext)
 
     const handleCalculatePress = () => {
@@ -22,7 +22,7 @@ export default function CalculateButton() {
         } else if (!(guests.man + guests.woman) && guests.kid) {
             Alert.alert('Convidado adulto necessário', 'Por favor, selecione pelo menos um convidado adulto antes de calcular.')
         } else {
-            navigation.navigate('Result')
+            navigation.navigate('Address')
         }
     }
 
