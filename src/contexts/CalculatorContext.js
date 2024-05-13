@@ -28,27 +28,27 @@ export default function CalculatorProvider({ children }) {
     const barbecueSauceQuantity = calculateBarbecueSauceQuantity()
 
     const meats = [
-        { name: 'Picanha', price: 58.00, type: 'beef', image: require('../../assets/coal.png') },
-        { name: 'Costela', price: 27.00, type: 'beef', image: require('../../assets/soda.png') },
-        { name: 'Alcatra', price: 43.00, type: 'beef', image: require('../../assets/coal.png') },
-        { name: 'Lombinho', price: 36.00, type: 'pork', image: require('../../assets/coal.png') },
-        { name: 'Pernil', price: 28.00, type: 'pork', image: require('../../assets/coal.png') },
-        { name: 'Linguiça toscana', price: 28.00, type: 'pork', image: require('../../assets/coal.png') },
-        { name: 'Coxa', price: 14.00, type: 'chicken', image: require('../../assets/coal.png') },
-        { name: 'Asa', price: 14.00, type: 'chicken', image: require('../../assets/coal.png') },
-        { name: 'Peito', price: 23.00, type: 'chicken', image: require('../../assets/coal.png') }
+        { name: 'Picanha', price: 58.00, type: 'beef', image: require('../../assets/picanha.png') },
+        { name: 'Costela', price: 27.00, type: 'beef', image: require('../../assets/rib.png') },
+        { name: 'Alcatra', price: 43.00, type: 'beef', image: require('../../assets/rump.png') },
+        { name: 'Lombinho', price: 36.00, type: 'pork', image: require('../../assets/porkLoin.png') },
+        { name: 'Pernil', price: 28.00, type: 'pork', image: require('../../assets/porkLeg.png') },
+        { name: 'Linguiça toscana', price: 28.00, type: 'pork', image: require('../../assets/tuscanSausage.png') },
+        { name: 'Coxa', price: 14.00, type: 'chicken', image: require('../../assets/chickenBreast.png') },
+        { name: 'Asa', price: 14.00, type: 'chicken', image: require('../../assets/chickenTigh.png') },
+        { name: 'Peito', price: 23.00, type: 'chicken', image: require('../../assets/chickenWing.png') }
     ]    
 
     const drinks = [
         { name: 'Água', price: 6.00, image: require('../../assets/water.png'), volume: 1500, servings: 1, alcoholic: false },
         { name: 'Refrigerante', price: 4.00, image: require('../../assets/soda.png'), volume: 350, servings: 4, alcoholic: false },
-        { name: 'Cerveja', price: 4.50, image: require('../../assets/coarseSalt.png'), volume: 350, servings: 4, alcoholic: true },
+        { name: 'Cerveja', price: 4.50, image: require('../../assets/beer.png'), volume: 350, servings: 4, alcoholic: true },
     ]    
 
     const consumables = [
         { name: 'Carvão', price: 9.00, image: require('../../assets/coal.png'), quantity: totalMeatKg },
         { name: 'Sal grosso', price: 5.90, image: require('../../assets/coarseSalt.png'), quantity: 1},
-        { name: 'Molho barbecue', price: 19.00, image: require('../../assets/coarseSalt.png'), quantity: barbecueSauceQuantity },
+        { name: 'Molho barbecue', price: 19.00, image: require('../../assets/barbecueSauce.png'), quantity: barbecueSauceQuantity },
     ]    
 
     const [selectedMeats, setSelectedMeats] = useState([])
