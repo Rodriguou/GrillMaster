@@ -46,9 +46,9 @@ export default function CalculatorProvider({ children }) {
     ]    
 
     const consumables = [
-        { name: 'Carvão', price: 9.00, image: require('../../assets/coal.png'), quantity: totalMeatKg },
-        { name: 'Sal grosso', price: 5.90, image: require('../../assets/coarseSalt.png'), quantity: 1},
-        { name: 'Molho barbecue', price: 19.00, image: require('../../assets/barbecueSauce.png'), quantity: barbecueSauceQuantity },
+        { name: 'Carvão', price: 9.00, image: require('../../assets/coal.png'), quantity: totalMeatKg, proportional: false },
+        { name: 'Sal grosso', price: 5.90, image: require('../../assets/coarseSalt.png'), quantity: 1, proportional: true},
+        { name: 'Molho barbecue', price: 19.00, image: require('../../assets/barbecueSauce.png'), quantity: barbecueSauceQuantity, proportional: true },
     ]    
 
     const [selectedMeats, setSelectedMeats] = useState([])
