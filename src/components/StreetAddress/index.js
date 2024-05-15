@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Text, View, TextInput, TouchableOpacity } from 'react-native'
+
 import { styles } from './styles'
 
 export default function StreetAddress() {
@@ -35,6 +36,26 @@ export default function StreetAddress() {
                 <TouchableOpacity style={styles.button}>
                     <Text style={styles.buttonText}>BUSCAR</Text>
                 </TouchableOpacity>
+            </View>
+
+            <View style={styles.formRow}>
+                <View style={[styles.form, styles.streetForm]}>
+                    <Text style={styles.label}>Rua</Text>
+
+                    <TextInput
+                        style={styles.input}
+                    />
+                </View>
+
+                <View style={styles.form}>
+                    <Text>Número</Text>
+
+                    <TextInput
+                        style={styles.input}
+                        maxLength={5}
+                        inputMode='numeric'
+                    />
+                </View>
             </View>
         </View>
     )

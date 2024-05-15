@@ -17,8 +17,16 @@ export const styles = StyleSheet.create({
         fontFamily: 'Archivo_500Medium',
         color: '#e2e2e2'
     },
+    formRow: {
+        flexDirection: 'row',
+        gap: 15
+    },
     form: {
-        gap: 9
+        gap: 9,
+        justifyContent: 'space-between'
+    },
+    streetForm: {
+        flex: 1
     },
     label: {
         color: '#0b0e16',
@@ -29,6 +37,7 @@ export const styles = StyleSheet.create({
         borderColor: '#e4e2e2',
         borderRadius: 3,
         paddingLeft: 9,
+        fontFamily: 'Archivo_400Regular'
     },
     button: {
         backgroundColor: '#ff6800',
