@@ -1,6 +1,7 @@
 import { Text, View } from 'react-native'
 
 import Header from '../../components/Header'
+import StreetAddress from '../../components/StreetAddress'
 import AddressButton from '../../components/AddressButton'
 import { styles } from './styles'
 
@@ -10,7 +11,7 @@ export default function Address() {
         <View style={styles.container}>
             <Header showMenu={false} />
             
-            <Text style={styles.componentTitle}>Endereço</Text>
+            <StreetAddress />
 
             <AddressButton />
         </View>
