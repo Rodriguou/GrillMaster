@@ -1,11 +1,13 @@
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
+    container: {
+        gap: 15
+    },
     componentHeader: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 15
+        alignItems: 'center'
     },
     componentTitle: {
         fontSize: 30,

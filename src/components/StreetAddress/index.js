@@ -13,7 +13,7 @@ export default function StreetAddress() {
     }
 
     return (
-        <View>
+        <View style={styles.container}>
             <View style={styles.componentHeader}>
                 <Text style={styles.componentTitle}>Endereço</Text>
 
@@ -56,6 +56,22 @@ export default function StreetAddress() {
                         inputMode='numeric'
                     />
                 </View>
+            </View>
+
+            <View style={styles.form}>
+                    <Text style={styles.label}>Bairro</Text>
+
+                    <TextInput
+                        style={styles.input}
+                    />
+            </View>
+
+            <View style={styles.form}>
+                <Text style={styles.label}>Cidade</Text>
+
+                <TextInput
+                    style={styles.input}
+                />
             </View>
         </View>
     )
