@@ -6,9 +6,7 @@ export const styles = StyleSheet.create({
         backgroundColor: '#fff',
         paddingHorizontal: 30
     },
-    componentTitle: {
-        fontSize: 33,
-        fontFamily: 'Archivo_700Bold',
-        color: '#0b0e16'
+    forms: {
+        gap: 18
     }
 })

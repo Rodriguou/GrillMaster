@@ -1,19 +1,29 @@
-import { Text, View } from 'react-native'
+import { SafeAreaView, ScrollView } from 'react-native'
 
 import Header from '../../components/Header'
 import StreetAddress from '../../components/StreetAddress'
+import Host from '../../components/Host'
 import AddressButton from '../../components/AddressButton'
 import { styles } from './styles'
 
 export default function Address() {
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView
+            style={styles.container}
+        >
             <Header showMenu={false} />
             
-            <StreetAddress />
+            <ScrollView
+                contentContainerStyle={styles.forms}
+                showsVerticalScrollIndicator={false}
+            >
+                <StreetAddress />
 
-            <AddressButton />
-        </View>
+                <Host />
+
+                <AddressButton />
+            </ScrollView>
+        </SafeAreaView>
     )
 }
