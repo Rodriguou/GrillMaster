@@ -5,6 +5,7 @@ import { useFonts, Archivo_400Regular, Archivo_500Medium, Archivo_600SemiBold, A
 import Routes from './src/routes'
 import Loading from './src/components/Loading'
 import CalculatorProvider from './src/contexts/CalculatorContext'
+import AddressProvider from './src/contexts/AddressContext'
 
 export default function App() {
     const [fontsLoaded] = useFonts({ Archivo_400Regular, Archivo_500Medium, Archivo_600SemiBold, Archivo_700Bold })
@@ -12,9 +13,11 @@ export default function App() {
     return (
         <NavigationContainer>
             <CalculatorProvider>
-                <StatusBar backgroundColor={'#fff'} barStyle={'dark-content'} />
+                <AddressProvider>
+                    <StatusBar backgroundColor={'#fff'} barStyle={'dark-content'} />
 
-                {fontsLoaded ? <Routes /> : <Loading />}
+                    {fontsLoaded ? <Routes /> : <Loading />}
+                </AddressProvider>
             </CalculatorProvider>
         </NavigationContainer>
     )

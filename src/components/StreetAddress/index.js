@@ -1,15 +1,27 @@
-import { useState } from 'react'
+import React, { useContext } from 'react'
 import { Text, View, TextInput, TouchableOpacity } from 'react-native'
-
+import { AddressContext } from '../../contexts/AddressContext'
 import { styles } from './styles'
 
 export default function StreetAddress() {
-    const [cep, setCep] = useState('')
+    const { address, updateAddress, fetchCepData } = useContext(AddressContext)
 
-    const handleNumericInputChange = (text, setInputState) => {
+    const handleNumericInputChange = (text, field) => {
         const newText = text.replace(/[^0-9]/g, '')
 
-        setInputState(newText)
+        updateAddress({ [field]: newText })
+    }
+
+    const handleCepSearch = async () => {
+        const cepData = await fetchCepData(address.cep)
+
+        if (cepData) {
+            updateAddress({
+                rua: cepData.logradouro,
+                bairro: cepData.bairro,
+                cidade: cepData.localidade,
+            })
+        }
     }
 
     return (
@@ -27,13 +39,11 @@ export default function StreetAddress() {
                     style={styles.input}
                     maxLength={8}
                     inputMode='numeric'
-                    onChangeText={(text) => handleNumericInputChange(text, setCep)}
-                    value={cep}
-                    placeholder='00000-000'
-                    placeholderTextColor={'#7f7f7f'}
+                    onChangeText={(text) => handleNumericInputChange(text, 'cep')}
+                    value={address.cep}
                 />
 
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={handleCepSearch}>
                     <Text style={styles.buttonText}>BUSCAR</Text>
                 </TouchableOpacity>
             </View>
@@ -44,6 +54,7 @@ export default function StreetAddress() {
 
                     <TextInput
                         style={styles.input}
+                        value={address.rua}
                     />
                 </View>
 
@@ -54,16 +65,19 @@ export default function StreetAddress() {
                         style={styles.input}
                         maxLength={5}
                         inputMode='numeric'
+                        value={address.numero}
+                        onChangeText={(text) => handleNumericInputChange(text, 'numero')}
                     />
                 </View>
             </View>
 
             <View style={styles.form}>
-                    <Text style={styles.label}>Bairro</Text>
+                <Text style={styles.label}>Bairro</Text>
 
-                    <TextInput
-                        style={styles.input}
-                    />
+                <TextInput
+                    style={styles.input}
+                    value={address.bairro}
+                />
             </View>
 
             <View style={styles.form}>
@@ -71,6 +85,7 @@ export default function StreetAddress() {
 
                 <TextInput
                     style={styles.input}
+                    value={address.cidade}
                 />
             </View>
         </View>
