@@ -44,8 +44,6 @@ export default function Result() {
                     </View>
                 ))}
 
-                <Text style={styles.resultTitle}>Consumo Total de Carnes</Text>
-                
                 <View
                     style={styles.resultContent}
                 >
@@ -67,8 +65,6 @@ export default function Result() {
                         <Text style={styles.resultText}>{formatLiters(volumePerDrink[drink.name])}</Text>
                     </View>
                 ))}
-
-                <Text style={styles.resultTitle}>Consumo Total de Bebidas</Text>
 
                 <View
                     style={styles.resultContent}
