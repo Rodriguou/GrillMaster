@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
     },
     options: {
         gap: 21,
-        marginTop: 36
+        marginTop: 9
     },
     option: {
         backgroundColor: '#fff',

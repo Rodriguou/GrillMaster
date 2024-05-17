@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
     container: {
-        gap: 15
+        gap: 9
     },
     componentHeader: {
         flexDirection: 'row',
@@ -17,8 +17,7 @@ export const styles = StyleSheet.create({
     componentNumber: {
         fontSize: 27,
         fontFamily: 'Archivo_500Medium',
-        color: '#e2e2e2',
-        lineHeight: 1.5
+        color: '#e2e2e2'
     },
     form: {
         gap: 9,
