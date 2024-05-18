@@ -12,15 +12,19 @@ export const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: '#EDEBE7',
     },
-
     name: {
         fontSize: 20,
         textAlign: 'center',
+        fontFamily: 'Archivo_400Regular',
+        color: '#0b0e16'
     },
-
     sectionTitle: {
-        fontWeight: "500", 
+        fontFamily: 'Archivo_500Medium',
+        color: '#0b0e16',
         fontSize: 18,
         marginTop: '3%',
     },
+    sectionText: {
+        fontFamily: 'Archivo_400Regular'
+    }
 })

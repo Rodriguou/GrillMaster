@@ -3,8 +3,7 @@ import { StyleSheet } from 'react-native'
 export const styles = StyleSheet.create({
 
     container: {
-        flex: 1,
-        marginTop: '10%',
+        flex: 1
     },
 
     recipeContainer: {
@@ -20,6 +19,6 @@ export const styles = StyleSheet.create({
         borderRadius: 5,
         paddingVertical: 2,
         marginVertical: '2%',
-
-    },
+        fontFamily: 'Archivo_500Medium'
+    }
 })
