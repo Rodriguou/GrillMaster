@@ -10,7 +10,7 @@ export default function CalculateButton() {
 
     const { guests, selectedMeats, selectedDrinks } = useContext(CalculatorContext)
 
-    const handleCalculatePress = () => {
+    const handleButtonPress = () => {
         const totalGuests = guests.man + guests.woman + guests.kid
 
         if (!totalGuests) {
@@ -28,7 +28,7 @@ export default function CalculateButton() {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.button} onPress={handleCalculatePress}>
+            <TouchableOpacity style={styles.button} onPress={handleButtonPress}>
                 <Text style={styles.buttonText}>CONTINUAR</Text>
             </TouchableOpacity>
         </View>

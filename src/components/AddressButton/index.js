@@ -24,7 +24,7 @@ export default function AddressButton() {
         return contactRegex.test(contact)
     }
 
-    const handleCalculatePress = () => {
+    const handleButtonPress = () => {
         if (!isAddressValid()) {
             Alert.alert('Endereço obrigatório', 'Por favor, preencha todos os campos obrigatórios do endereço.')
         } else if (!isValidName(address.nomeResponsavel)) {
@@ -38,7 +38,7 @@ export default function AddressButton() {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={styles.button} onPress={handleCalculatePress}>
+            <TouchableOpacity style={styles.button} onPress={handleButtonPress}>
                 <Text style={styles.buttonText}>CONTINUAR</Text>
             </TouchableOpacity>
         </View>
