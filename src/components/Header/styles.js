@@ -8,9 +8,14 @@ export const styles = StyleSheet.create({
         fontFamily: 'Archivo_700Bold'
     },
     title: {
-        fontSize: 30,
+        alignSelf: 'center',
+        fontSize: 39,
         color: '#ff6800',
-        marginBottom: 18
+        marginBottom: 18,
+        textShadowOffset: { width: 2.4, height: 1.5 },
+        textShadowColor: '#f7b818',
+        textShadowRadius: 3,
+        letterSpacing: 3
     },
     menu: {
         flexDirection: 'row',
