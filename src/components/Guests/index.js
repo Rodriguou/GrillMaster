@@ -4,6 +4,8 @@ import { Text, View, ScrollView, TouchableOpacity, Alert } from 'react-native'
 import ManIcon from '../../../assets/manIcon'
 import WomanIcon from '../../../assets/womanIcon'
 import KidIcon from '../../../assets/kidIcon'
+import PlusIcon from '../../../assets/plusIcon'
+import MinusIcon from '../../../assets/minusIcon'
 import { styles } from './styles'
 import { CalculatorContext } from '../../contexts/CalculatorContext'
 
@@ -48,34 +50,34 @@ export default function Guests() {
                 <View style={styles.option}>
                     <ManIcon />
 
-                    <Text style={styles.optionText}>Homem</Text>
+                    <Text style={styles.optionTitle}>Homem</Text>
 
                     <View style={styles.optionSelection}>
                         <TouchableOpacity style={styles.optionButton} onPress={() => decrementGuest('man')}>
-                            <Text>-</Text>
+                            <MinusIcon />
                         </TouchableOpacity>
 
-                        <Text>{guests.man}</Text>
+                        <Text style={styles.optionValue}>{guests.man}</Text>
 
                         <TouchableOpacity style={styles.optionButton} onPress={() => incrementGuest('man')}>
-                            <Text>+</Text>
+                            <PlusIcon />
                         </TouchableOpacity>
                     </View>
                 </View>
 
                 <View style={styles.option}>
                     <WomanIcon />
-                    <Text style={styles.optionText}>Mulher</Text>
+                    <Text style={styles.optionTitle}>Mulher</Text>
 
                     <View style={styles.optionSelection}>
                         <TouchableOpacity style={styles.optionButton} onPress={() => decrementGuest('woman')}>
-                            <Text>-</Text>
+                            <MinusIcon />
                         </TouchableOpacity>
 
-                        <Text>{guests.woman}</Text>
+                        <Text style={styles.optionValue}>{guests.woman}</Text>
 
                         <TouchableOpacity style={styles.optionButton} onPress={() => incrementGuest('woman')}>
-                            <Text>+</Text>
+                            <PlusIcon />
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -83,17 +85,17 @@ export default function Guests() {
                 <View style={styles.option}>
                     <KidIcon />
 
-                    <Text style={styles.optionText}>Criança</Text>
+                    <Text style={styles.optionTitle}>Criança</Text>
 
                     <View style={styles.optionSelection}>
                         <TouchableOpacity style={styles.optionButton} onPress={() => decrementGuest('kid')}>
-                            <Text>-</Text>
+                            <MinusIcon />
                         </TouchableOpacity>
 
-                        <Text>{guests.kid}</Text>
+                        <Text style={styles.optionValue}>{guests.kid}</Text>
                         
                         <TouchableOpacity style={styles.optionButton} onPress={() => incrementGuest('kid')}>
-                            <Text>+</Text>
+                            <PlusIcon />
                         </TouchableOpacity>
                     </View>
                 </View>

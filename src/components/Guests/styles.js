@@ -29,17 +29,23 @@ export const styles = StyleSheet.create({
         gap: 6,
         alignItems: 'center'
     },
-    optionText: {
+    optionTitle: {
         fontFamily: 'Archivo_600SemiBold',
         fontSize: 21,
     },
     optionSelection: {
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 9,
+        justifyContent: 'space-between',
+        width: 111
     },
     optionButton: {
         paddingHorizontal: 18,
         paddingVertical: 9,
+        // backgroundColor: '#ff0'
+    },
+    optionValue: {
+        fontFamily: 'Archivo_600SemiBold',
+        color: '#2a2a2a'
     }
 })
