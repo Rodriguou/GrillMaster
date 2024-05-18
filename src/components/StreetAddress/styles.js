@@ -39,7 +39,8 @@ export const styles = StyleSheet.create({
         borderColor: '#e4e2e2',
         borderRadius: 3,
         paddingLeft: 9,
-        fontFamily: 'Archivo_400Regular'
+        fontFamily: 'Archivo_400Regular',
+        color: '#0b0e16'
     },
     button: {
         backgroundColor: '#ff6800',

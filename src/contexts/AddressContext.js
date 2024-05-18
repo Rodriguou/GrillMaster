@@ -9,7 +9,9 @@ export default function AddressProvider({ children }) {
         rua: '',
         numero: '',
         bairro: '',
-        cidade: ''
+        cidade: '',
+        nomeResponsavel: '',
+        contatoResponsavel: ''
     })
 
     const updateAddress = (newData) => {

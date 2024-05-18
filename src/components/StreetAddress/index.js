@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { Text, View, TextInput, TouchableOpacity } from 'react-native'
+
 import { AddressContext } from '../../contexts/AddressContext'
 import { styles } from './styles'
 
@@ -9,7 +10,16 @@ export default function StreetAddress() {
     const handleNumericInputChange = (text, field) => {
         const newText = text.replace(/[^0-9]/g, '')
 
-        updateAddress({ [field]: newText })
+        if (field === 'cep') {
+            updateAddress({
+                cep: newText,
+                rua: '',
+                bairro: '',
+                cidade: '',
+            })
+        } else {
+            updateAddress({ [field]: newText })
+        }
     }
 
     const handleCepSearch = async () => {
@@ -33,7 +43,7 @@ export default function StreetAddress() {
             </View>
 
             <View style={styles.form}>
-                <Text style={styles.label}>CEP</Text>
+                <Text style={styles.label}>CEP*</Text>
 
                 <TextInput
                     style={styles.input}
@@ -55,11 +65,12 @@ export default function StreetAddress() {
                     <TextInput
                         style={styles.input}
                         value={address.rua}
+                        editable={false}
                     />
                 </View>
 
                 <View style={styles.form}>
-                    <Text>Número</Text>
+                    <Text>Número*</Text>
 
                     <TextInput
                         style={styles.input}
@@ -77,6 +88,7 @@ export default function StreetAddress() {
                 <TextInput
                     style={styles.input}
                     value={address.bairro}
+                    editable={false}
                 />
             </View>
 
@@ -86,6 +98,7 @@ export default function StreetAddress() {
                 <TextInput
                     style={styles.input}
                     value={address.cidade}
+                    editable={false}
                 />
             </View>
         </View>
