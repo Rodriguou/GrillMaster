@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react'
 import { Text, View, TouchableOpacity, ScrollView, Image } from 'react-native'
-import MeatIcon from '../../../assets/meatIcon'
 
+import SectionTitle from '../SectionTitle'
+import MeatIcon from '../../../assets/meatIcon'
 import { styles } from './styles'
 import { CalculatorContext } from '../../contexts/CalculatorContext'
 
@@ -30,11 +31,7 @@ export default function Meat() {
 
     return (
         <View>
-            <View style={styles.componentHeader}>
-                <Text style={styles.componentTitle}>Carnes</Text>
-                
-                <Text style={styles.componentNumber}>02</Text>
-            </View>
+            <SectionTitle title={'Carnes'} number={'02'} />
 
             <View style={styles.menu}>
                 <TouchableOpacity

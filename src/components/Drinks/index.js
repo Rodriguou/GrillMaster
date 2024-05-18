@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Text, View, TouchableOpacity, ScrollView, Image } from 'react-native'
 
+import SectionTitle from '../SectionTitle'
 import { styles } from './styles'
 import { CalculatorContext } from '../../contexts/CalculatorContext'
 
@@ -32,11 +33,7 @@ export default function Drinks() {
 
     return (
         <View>
-            <View style={styles.componentHeader}>
-                <Text style={styles.componentTitle}>Bebidas</Text>
-                
-                <Text style={styles.componentNumber}>03</Text>
-            </View>
+            <SectionTitle title={'Bebidas'} number={'03'} />
 
             <ScrollView
                 horizontal

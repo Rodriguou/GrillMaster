@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
 import { Text, View, TextInput, TouchableOpacity } from 'react-native'
 
-import { AddressContext } from '../../contexts/AddressContext'
+import SectionTitle from '../SectionTitle'
 import { styles } from './styles'
+import { AddressContext } from '../../contexts/AddressContext'
 
 export default function StreetAddress() {
     const { address, updateAddress, fetchCepData } = useContext(AddressContext)
@@ -36,11 +37,7 @@ export default function StreetAddress() {
 
     return (
         <View style={styles.container}>
-            <View style={styles.componentHeader}>
-                <Text style={styles.componentTitle}>Endereço</Text>
-
-                <Text style={styles.componentNumber}>05</Text>
-            </View>
+            <SectionTitle title={'Endereço'} number={'05'} />
 
             <View style={styles.form}>
                 <Text style={styles.label}>CEP*</Text>

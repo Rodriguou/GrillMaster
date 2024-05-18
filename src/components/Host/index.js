@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
 import { View, Text, TextInput } from 'react-native'
 
-import { AddressContext } from '../../contexts/AddressContext'
+import SectionTitle from '../SectionTitle'
 import { styles } from './styles'
+import { AddressContext } from '../../contexts/AddressContext'
 
 export default function Host() {
     const { address, updateAddress } = useContext(AddressContext)
@@ -18,10 +19,7 @@ export default function Host() {
 
     return (
         <View style={styles.container}>
-            <View style={styles.componentHeader}>
-                <Text style={styles.componentTitle}>Responsável</Text>
-                <Text style={styles.componentNumber}>06</Text>
-            </View>
+            <SectionTitle title={'Responsável'} number={'06'} />
 
             <View style={styles.form}>
                 <Text style={styles.label}>Nome*</Text>

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Text, View, ScrollView, TouchableOpacity, Alert } from 'react-native'
 
+import SectionTitle from '../SectionTitle'
 import ManIcon from '../../../assets/manIcon'
 import WomanIcon from '../../../assets/womanIcon'
 import KidIcon from '../../../assets/kidIcon'
@@ -36,11 +37,7 @@ export default function Guests() {
 
     return (
         <View>
-            <View style={styles.componentHeader}>
-                <Text style={styles.componentTitle}>Convidados</Text>
-
-                <Text style={styles.componentNumber}>01</Text>
-            </View>
+            <SectionTitle title={'Convidados'} number={'01'} />
 
             <ScrollView
                 horizontal
