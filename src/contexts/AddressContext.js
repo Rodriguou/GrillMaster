@@ -35,7 +35,7 @@ export default function AddressProvider({ children }) {
     }
 
     return (
-        <AddressContext.Provider value={{ address, updateAddress, fetchCepData }}>
+        <AddressContext.Provider value={{ address, setAddress, updateAddress, fetchCepData }}>
             {children}
         </AddressContext.Provider>
     )
