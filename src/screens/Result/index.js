@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 import { Text, ScrollView, View } from 'react-native'
 
 import Header from '../../components/Header'
+import ResultButton from '../../components/ResultButton'
 import { CalculatorContext } from '../../contexts/CalculatorContext'
 import { styles } from './styles'
 
@@ -27,8 +28,6 @@ export default function Result() {
     return (
         <View style={styles.container}>
             <Header showMenu={false} />
-            
-            <Text style={styles.componentTitle}>RESULTADO</Text>
 
             <ScrollView showsVerticalScrollIndicator={false}>
                 <Text style={styles.resultTitle}>Consumo Individual de Carnes</Text>
@@ -86,6 +85,8 @@ export default function Result() {
                         <Text style={styles.resultText}>{formatPrice(individualPrice[type])}</Text>
                     </View>
                 ))}
+
+                <ResultButton />
             </ScrollView>
         </View>
     )

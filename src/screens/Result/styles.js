@@ -6,12 +6,6 @@ export const styles = StyleSheet.create({
         backgroundColor: '#fff',
         paddingHorizontal: 30
     },
-    componentTitle: {
-        fontSize: 33,
-        fontFamily: 'Archivo_700Bold',
-        color: '#0b0e16',
-        marginBottom: 9
-    },
     resultTitle: {
         fontSize: 18,
         fontFamily: 'Archivo_600SemiBold',
@@ -22,11 +16,13 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingHorizontal: 15,
-        paddingVertical: 9,
+        paddingVertical: 12,
+        backgroundColor: '#edebe7',
         marginVertical: 3,
         borderWidth: 0.6,
-        borderColor: '#0b0e16',
-        borderRadius: 3
+        borderColor: '#7f7f7f',
+        borderRadius: 3,
+        elevation: 3
     },
     resultText: {
         fontFamily: 'Archivo_400Regular',
