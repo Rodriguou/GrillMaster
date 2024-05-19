@@ -150,7 +150,11 @@ export default function CalculatorProvider({ children }) {
 
     const calculateTotalDrinkPrice = () => {
         const individualDrinksPrice = calculateIndividualDrinksPrice()
-        const totalDrinkPrice = individualDrinksPrice.man * guests.man + individualDrinksPrice.woman * guests.woman + individualDrinksPrice.kid * guests.kid
+        let totalDrinkPrice = 0
+
+        Object.keys(individualDrinksPrice).forEach((type) => {
+            totalDrinkPrice += individualDrinksPrice[type] * guests[type]
+        })
 
         return totalDrinkPrice
     }
