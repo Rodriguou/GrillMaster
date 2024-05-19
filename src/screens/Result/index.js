@@ -7,7 +7,7 @@ import { CalculatorContext } from '../../contexts/CalculatorContext';
 import { styles } from './styles';
 
 export default function Result() {
-    const { selectedMeats, selectedDrinks, totalMeatKg, totalDrinkVolume, totalKgPerMeat, volumePerDrink, individualPrice, totalMeatPrice } = useContext(CalculatorContext);
+    const { selectedMeats, selectedDrinks, totalMeatKg, totalDrinkVolume, totalKgPerMeat, volumePerDrink, individualPrice, totalMeatPrice, totalDrinkPrice } = useContext(CalculatorContext);
 
     const formatKg = (number) => {
         return number.toLocaleString('pt-BR', { maximumFractionDigits: 2 }) + ' kg'
@@ -92,6 +92,14 @@ export default function Result() {
                     <Text style={styles.resultText}>Total</Text>
 
                     <Text style={styles.resultText}>{formatPrice(totalMeatPrice)}</Text>
+                </View>
+
+                <Text style={styles.resultTitle}>Valor das Bebidas</Text>
+
+                <View style={styles.resultContent}>
+                    <Text style={styles.resultText}>Total</Text>
+
+                    <Text style={styles.resultText}>{formatPrice(totalDrinkPrice)}</Text>
                 </View>
 
                 <ResultButton />
