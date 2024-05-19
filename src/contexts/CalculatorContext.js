@@ -18,13 +18,13 @@ export default function CalculatorProvider({ children }) {
 
     const totalMeatKg = calculateTotalMeatKg()
 
-    const calculateBarbecueSauceQuantity = () => {
-        const barbecueSauceQuantity = Math.ceil(calculateTotalMeatKg() * 150 / 200)
+    // const calculateBarbecueSauceQuantity = () => {
+    //     const barbecueSauceQuantity = Math.ceil(calculateTotalMeatKg() * 150 / 200)
 
-        return barbecueSauceQuantity
-    }
+    //     return barbecueSauceQuantity
+    // }
 
-    const barbecueSauceQuantity = calculateBarbecueSauceQuantity()
+    // const barbecueSauceQuantity = calculateBarbecueSauceQuantity()
 
     const meats = [
         {name: 'Picanha', price: 58.00, type: 'beef', image: require('../../assets/picanha.png')},
@@ -82,7 +82,7 @@ export default function CalculatorProvider({ children }) {
 
         // Iterar sobre os tipos de convidados que têm pelo menos 1 pessoa
         Object.keys(guests).forEach((type) => {
-            if (guests[type] === 0) {
+            if (!guests[type]) {
                 delete individualMeatPrice[type]
             }
         })
@@ -134,7 +134,7 @@ export default function CalculatorProvider({ children }) {
         }
 
         Object.keys(guests).forEach((type) => {
-            if (guests[type] === 0) {
+            if (!guests[type]) {
                 delete individualDrinksPrice[type]
             } else {
                 selectedDrinks.forEach((drink) => {
@@ -187,7 +187,7 @@ export default function CalculatorProvider({ children }) {
 
         // Iterar sobre os tipos de convidados que têm pelo menos 1 pessoa
         Object.keys(guests).forEach((type) => {
-            if (guests[type] === 0) {
+            if (!guests[type]) {
                 delete individualConsumablePrice[type]
             }        
         })        
@@ -207,7 +207,7 @@ export default function CalculatorProvider({ children }) {
         }
 
         Object.keys(guests).forEach((type) => {
-            if (guests[type] === 0) {
+            if (!guests[type]) {
                 delete individualPrice[type]
             } else {
                 individualPrice[type] = individualDrinksPrice[type] + individualMeatPrice[type] + individualConsumablesPrice[type]
@@ -224,6 +224,8 @@ export default function CalculatorProvider({ children }) {
     const volumePerDrink = calculateVolumePerDrink()
     
     const individualPrice = calculateIndividualPrice()
+
+    const totalMeatPrice = calculateTotalMeatPrice()
 
     return (
         <CalculatorContext.Provider
@@ -243,7 +245,8 @@ export default function CalculatorProvider({ children }) {
                 totalDrinkVolume,
                 totalKgPerMeat,
                 volumePerDrink,
-                individualPrice
+                individualPrice,
+                totalMeatPrice
             }}
         >
             {children}
