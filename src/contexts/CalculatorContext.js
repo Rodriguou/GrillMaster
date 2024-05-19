@@ -191,9 +191,9 @@ export default function CalculatorProvider({ children }) {
     const calculateIndividualConsumablesPrice = () => { // verificar se o cálculo está correto
         // Cálculo do preço individual
         const individualConsumablePrice = {
-            man: calculateTotalConsumablesPrice() * 0.6,
-            woman: calculateTotalConsumablesPrice() * 0.4,
-            kid: calculateTotalConsumablesPrice() * 0.25
+            man: calculateTotalConsumablesPrice() * 0.48 / (1 - (guests.woman ? 0 : 0.32) - (guests.kid ? 0 : 0.2)) / guests.man,
+            woman: calculateTotalConsumablesPrice() * 0.32 / (1 - (guests.man ? 0 : 0.48) - (guests.kid ? 0 : 0.2)) / guests.woman,
+            kid: calculateTotalConsumablesPrice() * 0.2 / (1 - (guests.man ? 0 : 0.48) - (guests.woman ? 0 : 0.32)) / guests.kid
         }        
 
         // Iterar sobre os tipos de convidados que têm pelo menos 1 pessoa
