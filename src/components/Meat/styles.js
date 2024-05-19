@@ -1,21 +1,6 @@
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
-    componentHeader: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-    },
-    componentTitle: {
-        fontSize: 30,
-        fontFamily: 'Archivo_700Bold',
-        color: '#0b0e16'
-    },
-    componentNumber: {
-        fontSize: 27,
-        fontFamily: 'Archivo_500Medium',
-        color: '#e2e2e2'
-    },
     menu: {
         flexDirection: 'row',
         borderRadius: 3,
