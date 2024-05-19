@@ -33,7 +33,7 @@ export default function CalculatorProvider({ children }) {
         {name: 'Lombinho', price: 36.00, type: 'pork', image: require('../../assets/porkLoin.png')},
         {name: 'Pernil', price: 28.00, type: 'pork', image: require('../../assets/porkLeg.png')},
         {name: 'Linguiça toscana', price: 28.00, type: 'pork', image: require('../../assets/tuscanSausage.png')},
-        {name: 'Coxa', price: 14.00, type: 'chicken', image: require('../../assets/chickenTigh.png')},
+        {name: 'Coxa', price: 14.00, type: 'chicken', image: require('../../assets/chickenThigh.png')},
         {name: 'Asa', price: 14.00, type: 'chicken', image: require('../../assets/chickenWing.png')},
         {name: 'Peito', price: 23.00, type: 'chicken', image: require('../../assets/chickenBreast.png')}
     ]
@@ -152,8 +152,8 @@ export default function CalculatorProvider({ children }) {
         // Cálculo do preço dos consumíveis
         const consumablePrices = {
             'Carvão': 0,
-            'Sal grosso': 0,
-            'Molho barbecue': 0 
+            // 'Sal grosso': 0,
+            // 'Molho barbecue': 0 
         }        
 
         selectedConsumables.forEach((consumable) => {

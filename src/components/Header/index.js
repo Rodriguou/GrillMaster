@@ -7,7 +7,7 @@ import { styles } from './styles'
 export default function Header({ selectedButton, onPress, showMenu }) {
     return (
         <View style={styles.container}>
-            <Text style={[styles.text, styles.title]}>DrillMaster</Text>
+            <Text style={[styles.text, styles.title]}>GrillMaster</Text>
 
             {showMenu && (
                 <View style={styles.menu}>
