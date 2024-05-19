@@ -11,16 +11,12 @@ export default function CalculateButton() {
     const { guests, selectedMeats, selectedDrinks } = useContext(CalculatorContext)
 
     const handleButtonPress = () => {
-        const totalGuests = guests.man + guests.woman + guests.kid
-
-        if (!totalGuests) {
-            Alert.alert('Número de convidados inválido', 'Por favor, insira o número de convidados.')
+        if (!(guests.man + guests.woman)) {
+            Alert.alert('Número de convidados inválido', 'Por favor, selecione pelo menos um convidado adulto.')
         } else if (!selectedMeats.length) {
             Alert.alert('Nenhuma carne selecionada', 'Por favor, selecione pelo menos uma carne antes de calcular.')
         } else if (!selectedDrinks.length) {
             Alert.alert('Nenhuma bebida selecionada', 'Por favor, selecione pelo menos uma bebida antes de calcular.')
-        } else if (!(guests.man + guests.woman) && guests.kid) {
-            Alert.alert('Convidado adulto necessário', 'Por favor, selecione pelo menos um convidado adulto antes de calcular.')
         } else {
             navigation.navigate('Address')
         }

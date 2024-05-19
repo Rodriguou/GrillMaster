@@ -46,6 +46,7 @@ export default function StreetAddress() {
                     style={styles.input}
                     maxLength={8}
                     inputMode='numeric'
+                    cursorColor={'#0b0e16'}
                     onChangeText={(text) => handleNumericInputChange(text, 'cep')}
                     value={address.cep}
                 />
@@ -57,7 +58,7 @@ export default function StreetAddress() {
 
             <View style={styles.formRow}>
                 <View style={[styles.form, styles.streetForm]}>
-                    <Text style={styles.label}>Rua</Text>
+                    <Text style={styles.label}>Rua*</Text>
 
                     <TextInput
                         style={styles.input}
@@ -73,6 +74,7 @@ export default function StreetAddress() {
                         style={styles.input}
                         maxLength={5}
                         inputMode='numeric'
+                        cursorColor={'#0b0e16'}
                         value={address.numero}
                         onChangeText={(text) => handleNumericInputChange(text, 'numero')}
                     />
@@ -80,7 +82,7 @@ export default function StreetAddress() {
             </View>
 
             <View style={styles.form}>
-                <Text style={styles.label}>Bairro</Text>
+                <Text style={styles.label}>Bairro*</Text>
 
                 <TextInput
                     style={styles.input}
@@ -90,7 +92,7 @@ export default function StreetAddress() {
             </View>
 
             <View style={styles.form}>
-                <Text style={styles.label}>Cidade</Text>
+                <Text style={styles.label}>Cidade*</Text>
 
                 <TextInput
                     style={styles.input}

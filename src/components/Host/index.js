@@ -25,6 +25,8 @@ export default function Host() {
                 <Text style={styles.label}>Nome*</Text>
                 <TextInput
                     style={styles.input}
+                    maxLength={50}
+                    cursorColor={'#0b0e16'}
                     value={address.nomeResponsavel}
                     onChangeText={handleNameChange}
                 />
@@ -36,6 +38,7 @@ export default function Host() {
                     style={styles.input}
                     inputMode='numeric'
                     maxLength={11}
+                    cursorColor={'#0b0e16'}
                     value={address.contatoResponsavel}
                     onChangeText={handleContactChange}
                 />

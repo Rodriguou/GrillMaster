@@ -26,9 +26,11 @@ export default function AddressButton() {
 
     const handleButtonPress = () => {
         if (!isAddressValid()) {
-            Alert.alert('Endereço obrigatório', 'Por favor, preencha todos os campos obrigatórios do endereço.')
+            Alert.alert('Endereço obrigatório', 'Por favor, preencha todos os campos do endereço.')
+        } else if (!address.nomeResponsavel) {
+            Alert.alert('Nome obrigatório', 'Por favor, preencha o campo do nome.')
         } else if (!isValidName(address.nomeResponsavel)) {
-            Alert.alert('Nome inválido', 'O nome do responsável deve ter no mínimo 3 caracteres e conter apenas letras.')
+            Alert.alert('Nome inválido', 'O nome do deve ter no mínimo 3 caracteres e conter apenas letras.')
         } else if (address.contatoResponsavel && !isValidContact(address.contatoResponsavel)) {
             Alert.alert('Contato inválido', 'O número de contato deve ter 10 ou 11 dígitos.')
         } else {
