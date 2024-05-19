@@ -10,19 +10,19 @@ export default function Result() {
     const { selectedMeats, selectedDrinks, totalMeatKg, totalDrinkVolume, totalKgPerMeat, volumePerDrink, individualPrice, totalMeatPrice } = useContext(CalculatorContext);
 
     const formatKg = (number) => {
-        return number.toLocaleString('pt-BR', { maximumFractionDigits: 2 }) + ' kg';
+        return number.toLocaleString('pt-BR', { maximumFractionDigits: 2 }) + ' kg'
     };
 
     const formatLiters = (volume) => {
         if (volume >= 1000) {
-            return (volume / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + ' l';
+            return (volume / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + ' l'
         } else {
-            return volume.toLocaleString('pt-BR') + ' ml';
+            return volume.toLocaleString('pt-BR') + ' ml'
         }
     };
     
     const formatPrice = (price) => {
-        return price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        return price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
     };
 
     const guestTypeMapping = {
