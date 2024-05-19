@@ -239,6 +239,8 @@ export default function CalculatorProvider({ children }) {
     const totalMeatPrice = calculateTotalMeatPrice()
     
     const totalDrinkPrice = calculateTotalDrinkPrice()
+    
+    const totalConsumablesPrice = calculateTotalConsumablesPrice()
 
     return (
         <CalculatorContext.Provider
@@ -260,7 +262,8 @@ export default function CalculatorProvider({ children }) {
                 volumePerDrink,
                 individualPrice,
                 totalMeatPrice,
-                totalDrinkPrice
+                totalDrinkPrice,
+                totalConsumablesPrice
             }}
         >
             {children}
