@@ -188,12 +188,12 @@ export default function CalculatorProvider({ children }) {
         return totalConsumablesPrice
     }
 
-    const calculateIndividualConsumablesPrice = () => { // verificar se o cálculo está correto
+    const calculateIndividualConsumablesPrice = () => {
         // Cálculo do preço individual
         const individualConsumablePrice = {
-            man: calculateTotalConsumablesPrice() * (0.48 * guests.man) / (0.48 * guests.man + 0.32 * guests.woman + 0.2 * guests.kid) / guests.man,
-            woman: calculateTotalConsumablesPrice() * (0.32 * guests.woman) / (0.48 * guests.man + 0.32 * guests.woman + 0.2 * guests.kid) / guests.woman,
-            kid: calculateTotalConsumablesPrice() * (0.2 * guests.kid) / (0.48 * guests.man + 0.32 * guests.woman + 0.2 * guests.kid) / guests.kid
+            man: totalConsumablesPrice * (0.48 * guests.man) / (0.48 * guests.man + 0.32 * guests.woman + 0.2 * guests.kid) / guests.man,
+            woman: totalConsumablesPrice * (0.32 * guests.woman) / (0.48 * guests.man + 0.32 * guests.woman + 0.2 * guests.kid) / guests.woman,
+            kid: totalConsumablesPrice * (0.2 * guests.kid) / (0.48 * guests.man + 0.32 * guests.woman + 0.2 * guests.kid) / guests.kid
         }
 
         // Iterar sobre os tipos de convidados que têm pelo menos 1 pessoa
