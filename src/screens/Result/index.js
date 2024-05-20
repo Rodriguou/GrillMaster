@@ -86,31 +86,25 @@ export default function Result() {
                     </View>
                 ))}
 
-                <Text style={styles.resultTitle}>Valor das Carnes</Text>
+                <Text style={styles.resultTitle}>Valor Gasto</Text>
 
                 <View style={styles.resultContent}>
-                    <Text style={styles.resultText}>Total</Text>
+                    <Text style={styles.resultText}>Carnes</Text>
 
                     <Text style={styles.resultText}>{formatPrice(totalMeatPrice)}</Text>
                 </View>
 
-                <Text style={styles.resultTitle}>Valor das Bebidas</Text>
-
                 <View style={styles.resultContent}>
-                    <Text style={styles.resultText}>Total</Text>
+                    <Text style={styles.resultText}>Bebidas</Text>
 
                     <Text style={styles.resultText}>{formatPrice(totalDrinkPrice)}</Text>
                 </View>
 
-                <Text style={styles.resultTitle}>Valor dos Consumíveis</Text>
-
                 <View style={styles.resultContent}>
-                    <Text style={styles.resultText}>Total</Text>
+                    <Text style={styles.resultText}>Consumíveis</Text>
 
                     <Text style={styles.resultText}>{formatPrice(totalConsumablesPrice)}</Text>
                 </View>
-
-                <Text style={styles.resultTitle}>Total</Text>
 
                 <View style={styles.resultContent}>
                     <Text style={styles.resultText}>Total</Text>
