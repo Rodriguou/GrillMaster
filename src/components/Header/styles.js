@@ -20,7 +20,8 @@ export const styles = StyleSheet.create({
     menu: {
         flexDirection: 'row',
         borderRadius: 3,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        marginBottom: 15
     },
     button: {
         flexDirection: 'row',

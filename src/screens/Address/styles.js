@@ -6,6 +6,10 @@ export const styles = StyleSheet.create({
         backgroundColor: '#fff',
         paddingHorizontal: 30
     },
+    containerContent: {
+        flex: 1,
+        justifyContent: 'space-between'
+    },
     forms: {
         gap: 18
     }

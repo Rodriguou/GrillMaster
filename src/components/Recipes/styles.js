@@ -1,19 +1,16 @@
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
-
     container: {
         flex: 1
     },
-
     recipeContainer: {
-        marginVertical: '10%',
+        marginBottom: 15
     },
-
     categoryText: {
         fontSize: 24,
-        color: '#E86E1A',
-        backgroundColor: '#0B0E16',
+        color: '#e86e1a',
+        backgroundColor: '#0b0e16',
         width: '100%',
         textAlign: 'center',
         borderRadius: 5,

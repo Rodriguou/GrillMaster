@@ -1,4 +1,4 @@
-import { SafeAreaView, ScrollView } from 'react-native'
+import { SafeAreaView, ScrollView, View } from 'react-native'
 
 import Header from '../../components/Header'
 import StreetAddress from '../../components/StreetAddress'
@@ -13,14 +13,16 @@ export default function Address() {
             style={styles.container}
         >
             <Header showMenu={false} />
-            
+
             <ScrollView
-                contentContainerStyle={styles.forms}
+                contentContainerStyle={styles.containerContent}
                 showsVerticalScrollIndicator={false}
             >
-                <StreetAddress />
+                <View style={styles.forms}>
+                    <StreetAddress />
 
-                <Host />
+                    <Host />
+                </View>
 
                 <AddressButton />
             </ScrollView>
