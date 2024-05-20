@@ -23,9 +23,10 @@ export default function Host() {
 
             <View style={styles.form}>
                 <Text style={styles.label}>Nome*</Text>
+
                 <TextInput
                     style={styles.input}
-                    maxLength={50}
+                    maxLength={40}
                     cursorColor={'#0b0e16'}
                     value={address.nomeResponsavel}
                     onChangeText={handleNameChange}
@@ -34,6 +35,7 @@ export default function Host() {
 
             <View style={styles.form}>
                 <Text style={styles.label}>Contato</Text>
+                
                 <TextInput
                     style={styles.input}
                     inputMode='numeric'
