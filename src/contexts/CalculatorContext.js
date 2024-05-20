@@ -58,9 +58,9 @@ export default function CalculatorProvider({ children }) {
     ]
     
     const sideDishes = [
-        {name: 'Pão de Alho', price: 12.00, image: require('../../assets/coal.png'), quantity: 400},
-        {name: 'Farofa', price: 7.50, image: require('../../assets/coal.png'), quantity: 500},
-        {name: 'Arroz', price: 9.00, image: require('../../assets/coal.png'), quantity: 1000},
+        {name: 'Pão de Alho', price: 12.00, image: require('../../assets/garlicBread.png'), quantity: 400},
+        {name: 'Farofa', price: 7.50, image: require('../../assets/farofa.png'), quantity: 500},
+        {name: 'Arroz', price: 9.00, image: require('../../assets/rice.png'), quantity: 1000},
     ]
     
     const [selectedMeats, setSelectedMeats] = useState([])
