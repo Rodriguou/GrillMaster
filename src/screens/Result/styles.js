@@ -6,6 +6,9 @@ export const styles = StyleSheet.create({
         backgroundColor: '#fff',
         paddingHorizontal: 30
     },
+    content: {
+        gap: 15
+    },
     resultTitle: {
         fontSize: 18,
         fontFamily: 'Archivo_600SemiBold',
