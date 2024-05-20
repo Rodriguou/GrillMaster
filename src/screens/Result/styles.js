@@ -25,10 +25,13 @@ export const styles = StyleSheet.create({
         borderWidth: 0.6,
         borderColor: '#7f7f7f',
         borderRadius: 3,
-        elevation: 3
+        elevation: 3,
+        alignItems: 'center',
+        gap: 30
     },
     resultText: {
         fontFamily: 'Archivo_400Regular',
-        fontSize: 15
+        fontSize: 15,
+        flexShrink: 1
     }
 })
