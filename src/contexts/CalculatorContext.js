@@ -196,7 +196,8 @@ export default function CalculatorProvider({ children }) {
     }
 
     const calculateIndividualConsumablesPrice = () => {
-        // Cálculo do preço individual
+        const totalConsumablesPrice = calculateTotalConsumablesPrice()
+
         const individualConsumablePrice = {
             man: totalConsumablesPrice * 0.48 / (0.48 * guests.man + 0.32 * guests.woman + 0.2 * guests.kid),
             woman: totalConsumablesPrice * 0.32 / (0.48 * guests.man + 0.32 * guests.woman + 0.2 * guests.kid),
