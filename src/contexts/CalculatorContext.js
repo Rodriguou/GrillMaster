@@ -32,6 +32,30 @@ export default function CalculatorProvider({ children }) {
     // }
     
     // const barbecueSauceQuantity = calculateBarbecueSauceQuantity()
+
+    const calculateGarlicBreadQuantity = () => {
+        const garlicBreadQuantity = Math.ceil((guests.man + guests.woman + guests.kid) * 50 / 400);
+
+        return garlicBreadQuantity;
+    }
+    
+    const garlicBreadQuantity = calculateGarlicBreadQuantity();
+
+    const calculateFarofaQuantity = () => {
+        const farofaQuantity = Math.ceil((guests.man + guests.woman + guests.kid) * 50 / 500);
+
+        return farofaQuantity;
+    }
+    
+    const farofaQuantity = calculateFarofaQuantity();
+
+    const calculateRiceQuantity = () => {
+        const riceQuantity = Math.ceil((guests.man + guests.woman + guests.kid) * 100 / 1000);
+
+        return riceQuantity;
+    }
+    
+    const riceQuantity = calculateRiceQuantity();
     
     const meats = [
         {name: 'Picanha', price: 58.00, type: 'beef', image: require('../../assets/picanha.png')},
@@ -58,9 +82,9 @@ export default function CalculatorProvider({ children }) {
     ]
     
     const sideDishes = [
-        {name: 'Pão de Alho', price: 12.00, image: require('../../assets/garlicBread.png'), quantity: 400},
-        {name: 'Farofa', price: 7.50, image: require('../../assets/farofa.png'), quantity: 500},
-        {name: 'Arroz', price: 9.00, image: require('../../assets/rice.png'), quantity: 1000},
+        {name: 'Pão de Alho', price: 12.00, image: require('../../assets/garlicBread.png'), quantity: garlicBreadQuantity},
+        {name: 'Farofa', price: 7.50, image: require('../../assets/farofa.png'), quantity: farofaQuantity},
+        {name: 'Arroz', price: 9.00, image: require('../../assets/rice.png'), quantity: riceQuantity},
     ]
     
     const [selectedMeats, setSelectedMeats] = useState([])
