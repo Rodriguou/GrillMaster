@@ -41,25 +41,6 @@
         "Leve a costela e coloque sobre a grelha.",
         "Marque 2 horas e vire a mesma, deixando mais uma hora e pronto."
       ]
-    },
-    { 
-      "name": "Maminha", 
-      "ingredients": 
-        [
-          "1,50 kg maminha inteira",
-          "sal",
-          "pimenta do reino",
-          "noz moscada",
-          "páprica defumada"
-        ], 
-      "preparation": 
-      [
-        "Faça o fogo na churrasqueira. Deixe o carvão ficar esbranquiçado.",
-        "Misture todos os ingredientes em um recipiente, deixando o sal por último - o sal deve ser colocado no final, misturado aos poucos (prove o tempero), até ficar ao seu gosto.",
-        "Tempere a Maminha por completo. Você também pode optar por selar a carne primeiro, retirar na churrasqueira e então temperar. Das duas formas você terá uma alteração de resultado, ficando ao seu critério escolher qual lhe agrada mais ao paladar.",
-        "Coloque a carne bem perto do fogo para dar uma selada de 5 minutos de cada lado, levante a grelha e deixe assar por 30 minutos de cada lado em fogo brando.",
-        "Retire do fogo espere 5 minutos para os líquidos se equilibrarem e pode cortar!"
-      ] 
     }
   ],
 
@@ -113,25 +94,6 @@
         "Vire o pernil quando o lado de baixo estiver dourado e pincele novamente com a salmoura.",
         "Ao retirar o pernil da grelha, antes de servir, passe um pouco de manteiga a gosto."
       ]
-    },
-    { 
-      "name": "Paleta (2 kg)", 
-      "ingredients": 
-        [
-          "2 kg de paleta suína com osso",
-          "6 dentes de alho",
-          "1 cebola grande",
-          "suco de 4 limões grandes",
-          "sal a gosto"
-        ], 
-      "preparation":
-      [
-        "Em um refratário, junte a cebola bem picada, o alho moído, o suco dos limões e o sal.",
-        "Após, junte a peça de paleta e distribua o tempero em ambos os lados.",
-        "Tampe o refratário com papel filme e leve a geladeira por, cerca de, 2 horas.",
-        "Após, asse por cerca de 1 hora e 30 minutos, em forno médio (200°C).",
-        "O ideal é deixar na geladeira com tempero de um dia para outro."
-      ]
     }
   ],
 
@@ -180,24 +142,6 @@
         "Leve para a churrasqueira e tome cuidado com o fogo muito alto para não queimar por fora enquanto dentro fica cru.",
         "Deixe o fogo baixo com a tampa da churrasqueira fechada para defumar bem.",
         "Após cerca de 20 a 30 minutos, retire se já estiver assado e sirva."
-      ]
-    },
-    { 
-      "name": "Coração (1 kg)", 
-      "ingredients": 
-        [
-          "1 kg de coração de frango descongelado e limpo",
-          "1 xícara de chá de óleo",
-          "Sal grosso",
-          "3 dentes de alho amassados e picados"
-        ], 
-      "preparation":
-      [
-        "Em uma bacia, coloque os corações de frango, adicione o óleo e o alho.",
-        "Salgue a gosto com o sal grosso e mexa bem.",
-        "Espete os corações em espeto de bambu ou no de sua preferência.",
-        "Asse-os em brasa sem fogo alto, por aproximadamente 30 minutos.",
-        "Está pronto para servir."
       ]
     }
   ]
