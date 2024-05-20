@@ -7,7 +7,7 @@ import { CalculatorContext } from '../../contexts/CalculatorContext';
 import { styles } from './styles';
 
 export default function Result() {
-    const { selectedMeats, selectedDrinks, totalMeatKg, totalDrinkVolume, totalKgPerMeat, volumePerDrink, individualPrice, totalMeatPrice, totalDrinkPrice, totalConsumablesPrice, totalSideDishesPrice, totalPrice } = useContext(CalculatorContext);
+    const { selectedMeats, selectedDrinks, totalMeatKg, totalDrinkVolume, totalKgPerMeat, volumePerDrink, individualPrice, totalMeatPrice, totalDrinkPrice, totalConsumablesPrice, totalSideDishesPrice, selectedConsumables, selectedSideDishes, totalPrice } = useContext(CalculatorContext);
 
     const formatKg = (number) => {
         return number.toLocaleString('pt-BR', { maximumFractionDigits: 2 }) + ' kg'
@@ -44,6 +44,7 @@ export default function Result() {
                         key={index}
                     >
                         <Text style={styles.resultText}>{meat.name}</Text>
+
                         <Text style={styles.resultText}>{formatKg(totalKgPerMeat)}</Text>
                     </View>
                 ))}
@@ -52,6 +53,7 @@ export default function Result() {
                     style={styles.resultContent}
                 >
                     <Text style={styles.resultText}>Total</Text>
+
                     <Text style={styles.resultText}>{formatKg(totalMeatKg)}</Text>
                 </View>
 
@@ -63,6 +65,7 @@ export default function Result() {
                         key={index}
                     >
                         <Text style={styles.resultText}>{drink.name}</Text>
+
                         <Text style={styles.resultText}>{formatLiters(volumePerDrink[drink.name])}</Text>
                     </View>
                 ))}
@@ -71,6 +74,7 @@ export default function Result() {
                     style={styles.resultContent}
                 >
                     <Text style={styles.resultText}>Total</Text>
+
                     <Text style={styles.resultText}>{formatLiters(totalDrinkVolume)}</Text>
                 </View>
 
@@ -82,6 +86,7 @@ export default function Result() {
                         key={index}
                     >
                         <Text style={styles.resultText}>{guestTypeMapping[type]}</Text>
+
                         <Text style={styles.resultText}>{formatPrice(individualPrice[type])}</Text>
                     </View>
                 ))}
@@ -100,17 +105,21 @@ export default function Result() {
                     <Text style={styles.resultText}>{formatPrice(totalDrinkPrice)}</Text>
                 </View>
 
-                <View style={styles.resultContent}>
-                    <Text style={styles.resultText}>Consumíveis</Text>
+                {selectedConsumables.length > 0 && (
+                    <View style={styles.resultContent}>
+                        <Text style={styles.resultText}>Consumíveis</Text>
 
-                    <Text style={styles.resultText}>{formatPrice(totalConsumablesPrice)}</Text>
-                </View>
+                        <Text style={styles.resultText}>{formatPrice(totalConsumablesPrice)}</Text>
+                    </View>
+                )}
 
-                <View style={styles.resultContent}>
-                    <Text style={styles.resultText}>Acompanhamentos</Text>
+                {selectedSideDishes.length > 0 && (
+                    <View style={styles.resultContent}>
+                        <Text style={styles.resultText}>Acompanhamentos</Text>
 
-                    <Text style={styles.resultText}>{formatPrice(totalSideDishesPrice)}</Text>
-                </View>
+                        <Text style={styles.resultText}>{formatPrice(totalSideDishesPrice)}</Text>
+                    </View>
+                )}
 
                 <View style={styles.resultContent}>
                     <Text style={styles.resultText}>Total</Text>
