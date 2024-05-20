@@ -37,7 +37,7 @@ export default function StreetAddress() {
 
     return (
         <View style={styles.container}>
-            <SectionTitle title={'Endereço'} number={'05'} />
+            <SectionTitle title={'Endereço'} number={'06'} />
 
             <View style={styles.form}>
                 <Text style={styles.label}>CEP*</Text>

@@ -5,6 +5,7 @@ import Meat from '../Meat'
 import Drinks from '../Drinks'
 import Consumables from '../Consumables'
 import CalculateButton from '../CalculateButton'
+import SideDishes from '../SideDishes'
 import { styles } from './styles'
 
 export default function Calculator() {
@@ -20,6 +21,8 @@ export default function Calculator() {
             <Drinks />
 
             <Consumables />
+            
+            <SideDishes />
 
             <CalculateButton />
         </ScrollView>

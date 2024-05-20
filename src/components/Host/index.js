@@ -19,7 +19,7 @@ export default function Host() {
 
     return (
         <View style={styles.container}>
-            <SectionTitle title={'Responsável'} number={'06'} />
+            <SectionTitle title={'Responsável'} number={'07'} />
 
             <View style={styles.form}>
                 <Text style={styles.label}>Nome*</Text>

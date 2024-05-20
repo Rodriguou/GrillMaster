@@ -50,9 +50,16 @@ export default function CalculatorProvider({ children }) {
         // {name: 'Molho barbecue', price: 19.00, image: require('../../assets/barbecueSauce.png'), quantity: barbecueSauceQuantity, proportional: true},
     ]
 
+    const sideDishes = [
+        {name: 'Pão de Alho', price: 12.00, image: require('../../assets/coal.png'), quantity: 400},
+        {name: 'Farofa', price: 7.50, image: require('../../assets/coal.png'), quantity: 500},
+        {name: 'Arroz', price: 9.00, image: require('../../assets/coal.png'), quantity: 1000},
+    ]
+
     const [selectedMeats, setSelectedMeats] = useState([])
     const [selectedDrinks, setSelectedDrinks] = useState([])
     const [selectedConsumables, setSelectedConsumables] = useState([])
+    const [selectedSideDishes, setSelectedSideDishes] = useState([])
 
     const calculateKgPerMeat = () => {
         // Cálculo de quilogramas por carne
@@ -250,12 +257,15 @@ export default function CalculatorProvider({ children }) {
                 meats,
                 drinks,
                 consumables,
+                sideDishes,
                 selectedMeats,
                 setSelectedMeats,
                 selectedDrinks,
                 setSelectedDrinks,
                 selectedConsumables,
                 setSelectedConsumables,
+                selectedSideDishes,
+                setSelectedSideDishes,
                 totalMeatKg,
                 totalDrinkVolume,
                 totalKgPerMeat,
