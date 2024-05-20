@@ -9,7 +9,7 @@ import { styles } from './styles'
 export default function ResultButton() {
     const navigation = useNavigation()
 
-    const { setGuests, setSelectedMeats, setSelectedDrinks, setSelectedConsumables } = useContext(CalculatorContext)
+    const { setGuests, setSelectedMeats, setSelectedDrinks, setSelectedConsumables, setSelectedSideDishes } = useContext(CalculatorContext)
 
     const { setAddress } = useContext(AddressContext)
 
@@ -25,6 +25,8 @@ export default function ResultButton() {
         setSelectedDrinks([])
 
         setSelectedConsumables([])
+
+        setSelectedSideDishes([])
 
         setAddress({
             cep: '',
