@@ -23,6 +23,15 @@ export default function CalculatorProvider({ children }) {
         })
     }
 
+    const updateSideDishQuantity = () => {
+        selectedSideDishes.forEach((sideDish) => {
+            selectedSideDishes[sideDish.name] = { ...selectedSideDishes[sideDish.name], quantity: 0 }; 
+
+        })
+        console.log(selectedSideDishes)
+        console.log(sideDishes)
+    }
+
     const totalMeatKg = calculateTotalMeatKg()
     
     // const calculateBarbecueSauceQuantity = () => {
@@ -94,6 +103,7 @@ export default function CalculatorProvider({ children }) {
     
     useEffect(() => {
         updateConsumableQuantity()
+        updateSideDishQuantity()
     }, [guests]);
 
     const calculateKgPerMeat = () => {
