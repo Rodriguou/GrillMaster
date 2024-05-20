@@ -25,11 +25,9 @@ export default function CalculatorProvider({ children }) {
 
     const updateSideDishQuantity = () => {
         selectedSideDishes.forEach((sideDish) => {
-            selectedSideDishes[sideDish.name] = { ...selectedSideDishes[sideDish.name], quantity: 0 }; 
+            selectedSideDishes[sideDish.name] = { ...selectedSideDishes[sideDish.name], quantity: 5 }; 
 
         })
-        console.log(selectedSideDishes)
-        console.log(sideDishes)
     }
 
     const totalMeatKg = calculateTotalMeatKg()
@@ -213,28 +211,28 @@ export default function CalculatorProvider({ children }) {
 
     const calculateConsumablesPrices = () => {
         // Cálculo do preço dos consumíveis
-        const consumablePrices = {
+        const consumablesPrices = {
             'Carvão': 0,
             // 'Sal grosso': 0,
             // 'Molho barbecue': 0 
         }        
 
         consumables.forEach((consumable) => {
-            consumablePrices[consumable.name] = consumable.quantity * consumable.price    
+            consumablesPrices[consumable.name] = consumable.quantity * consumable.price    
         })
         
-        Object.keys(consumablePrices).forEach((consumableName) => {
+        Object.keys(consumablesPrices).forEach((consumableName) => {
             if (!selectedConsumables.some((consumable) => consumable.name === consumableName)) {
-                delete consumablePrices[consumableName]
+                delete consumablesPrices[consumableName]
             }
         })
 
-        return consumablePrices
+        return consumablesPrices
     }
 
     const calculateTotalConsumablesPrice = () => {
         let totalConsumablesPrice = 0
-
+        
         Object.values(calculateConsumablesPrices()).forEach((consumablePrice) =>
             totalConsumablesPrice += consumablePrice        
         )
@@ -261,11 +259,62 @@ export default function CalculatorProvider({ children }) {
         return individualConsumablePrice
     }
 
+    const calculateSideDishesPrices = () => {
+        // Cálculo do preço dos consumíveis
+        const sideDishesPrices = {
+            'Pão de Alho': 0,
+            'Farofa': 0,
+            'Arroz': 0 
+        }        
+
+        sideDishes.forEach((sideDish) => {
+            sideDishesPrices[sideDish.name] = sideDish.quantity * sideDish.price    
+        })
+        
+        Object.keys(sideDishesPrices).forEach((sideDishName) => {
+            if (!selectedSideDishes.some((sideDish) => sideDish.name === sideDishName)) {
+                delete sideDishesPrices[sideDishName]
+            }
+        })
+
+        return sideDishesPrices
+    }
+    
+    const calculateTotalSideDishesPrice = () => {
+        let totalSideDishesPrice = 0
+
+        Object.values(calculateSideDishesPrices()).forEach((sideDishPrice) =>
+            totalSideDishesPrice += sideDishPrice        
+        )
+
+        return totalSideDishesPrice
+    }
+
+    const calculateIndividualSideDishesPrice = () => {
+        const totalSideDishesPrice = calculateTotalSideDishesPrice()
+        // Cálculo do preço individual
+        const individualSideDishesPrice = {
+            man: totalSideDishesPrice / (guests.man + guests.woman + guests.kid),
+            woman: totalSideDishesPrice / (guests.man + guests.woman + guests.kid),
+            kid: totalSideDishesPrice / (guests.man + guests.woman + guests.kid)
+        }
+
+        // Iterar sobre os tipos de convidados que têm pelo menos 1 pessoa
+        Object.keys(guests).forEach((type) => {
+            if (!guests[type]) {
+                delete individualSideDishesPrice[type]
+            }        
+        })        
+
+        return individualSideDishesPrice
+    }
+
     const calculateIndividualPrice = () => {
         // Cálculo do preço individual
         const individualDrinksPrice = calculateIndividualDrinksPrice()
         const individualMeatPrice = calculateIndividualMeatPrice()
         const individualConsumablesPrice = calculateIndividualConsumablesPrice()
+        const individualSideDishesPrice = calculateIndividualSideDishesPrice()
         const individualPrice = {
             man: 0,
             woman: 0,
@@ -276,7 +325,7 @@ export default function CalculatorProvider({ children }) {
             if (!guests[type]) {
                 delete individualPrice[type]
             } else {
-                individualPrice[type] = individualDrinksPrice[type] + individualMeatPrice[type] + individualConsumablesPrice[type]
+                individualPrice[type] = individualDrinksPrice[type] + individualMeatPrice[type] + individualConsumablesPrice[type] + individualSideDishesPrice[type]
             }
         })
 
@@ -284,7 +333,7 @@ export default function CalculatorProvider({ children }) {
     }
 
     const calculateTotalPrice = () => {
-        const totalPrice = calculateTotalDrinkPrice() + calculateTotalMeatPrice() + calculateTotalConsumablesPrice()
+        const totalPrice = calculateTotalDrinkPrice() + calculateTotalMeatPrice() + calculateTotalConsumablesPrice() + calculateTotalSideDishesPrice()
 
         return totalPrice
     }
@@ -302,6 +351,8 @@ export default function CalculatorProvider({ children }) {
     const totalDrinkPrice = calculateTotalDrinkPrice()
     
     const totalConsumablesPrice = calculateTotalConsumablesPrice()
+
+    const totalSideDishesPrice = calculateTotalSideDishesPrice()
     
     const totalPrice = calculateTotalPrice()
 
@@ -330,6 +381,7 @@ export default function CalculatorProvider({ children }) {
                 totalMeatPrice,
                 totalDrinkPrice,
                 totalConsumablesPrice,
+                totalSideDishesPrice,
                 totalPrice
             }}
         >
