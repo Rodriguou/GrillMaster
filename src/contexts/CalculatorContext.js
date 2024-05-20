@@ -8,6 +8,17 @@ export default function CalculatorProvider({ children }) {
         woman: 0,
         kid: 0
     })
+
+    const getGuests = () => {
+        return Object.entries(guests)
+            .filter(([_, count]) => count > 0)
+
+            .map(([type, count]) => ({ type, count }));
+    }
+
+    const getTotalGuests = () => {
+        return Object.values(guests).reduce((total, count) => total + count, 0)
+    }
     
     const calculateTotalMeatKg = () => {
         // Cálculo do total de quilogramas de carne
@@ -105,14 +116,12 @@ export default function CalculatorProvider({ children }) {
     }, [guests]);
 
     const calculateKgPerMeat = () => {
-        // Cálculo de quilogramas por carne
         const totalKgPerMeat = calculateTotalMeatKg() / selectedMeats.length
 
         return totalKgPerMeat
     }
 
     const calculateMeatPrices = () => {
-        // Inicializar o preço das carnes como zero
         let meatPrices = 0
 
         selectedMeats.forEach((meat) => {
@@ -123,14 +132,12 @@ export default function CalculatorProvider({ children }) {
     }
 
     const calculateIndividualMeatPrice = () => {
-        // Cálculo do preço individual
         const individualMeatPrice = {
             man: calculateMeatPrices() * 0.6 / selectedMeats.length,
             woman: calculateMeatPrices() * 0.4 / selectedMeats.length,
             kid: calculateMeatPrices() * 0.25 / selectedMeats.length
         }
 
-        // Iterar sobre os tipos de convidados que têm pelo menos 1 pessoa
         Object.keys(guests).forEach((type) => {
             if (!guests[type]) {
                 delete individualMeatPrice[type]
@@ -176,7 +183,6 @@ export default function CalculatorProvider({ children }) {
     }
 
     const calculateIndividualDrinksPrice = () => {
-        // Cálculo do preço individual
         let individualDrinksPrice = {
             man: 0,
             woman: 0,
@@ -210,7 +216,6 @@ export default function CalculatorProvider({ children }) {
     }
 
     const calculateConsumablesPrices = () => {
-        // Cálculo do preço dos consumíveis
         const consumablesPrices = {
             'Carvão': 0,
             // 'Sal grosso': 0,
@@ -242,14 +247,13 @@ export default function CalculatorProvider({ children }) {
 
     const calculateIndividualConsumablesPrice = () => {
         const totalConsumablesPrice = calculateTotalConsumablesPrice()
-        // Cálculo do preço individual
+
         const individualConsumablePrice = {
             man: totalConsumablesPrice * 0.48 / (0.48 * guests.man + 0.32 * guests.woman + 0.2 * guests.kid),
             woman: totalConsumablesPrice * 0.32 / (0.48 * guests.man + 0.32 * guests.woman + 0.2 * guests.kid),
             kid: totalConsumablesPrice * 0.2 / (0.48 * guests.man + 0.32 * guests.woman + 0.2 * guests.kid)
         }
 
-        // Iterar sobre os tipos de convidados que têm pelo menos 1 pessoa
         Object.keys(guests).forEach((type) => {
             if (!guests[type]) {
                 delete individualConsumablePrice[type]
@@ -292,14 +296,13 @@ export default function CalculatorProvider({ children }) {
 
     const calculateIndividualSideDishesPrice = () => {
         const totalSideDishesPrice = calculateTotalSideDishesPrice()
-        // Cálculo do preço individual
+
         const individualSideDishesPrice = {
             man: totalSideDishesPrice / (guests.man + guests.woman + guests.kid),
             woman: totalSideDishesPrice / (guests.man + guests.woman + guests.kid),
             kid: totalSideDishesPrice / (guests.man + guests.woman + guests.kid)
         }
 
-        // Iterar sobre os tipos de convidados que têm pelo menos 1 pessoa
         Object.keys(guests).forEach((type) => {
             if (!guests[type]) {
                 delete individualSideDishesPrice[type]
@@ -310,11 +313,14 @@ export default function CalculatorProvider({ children }) {
     }
 
     const calculateIndividualPrice = () => {
-        // Cálculo do preço individual
         const individualDrinksPrice = calculateIndividualDrinksPrice()
+
         const individualMeatPrice = calculateIndividualMeatPrice()
+
         const individualConsumablesPrice = calculateIndividualConsumablesPrice()
+
         const individualSideDishesPrice = calculateIndividualSideDishesPrice()
+
         const individualPrice = {
             man: 0,
             woman: 0,
@@ -361,6 +367,8 @@ export default function CalculatorProvider({ children }) {
             value={{
                 guests,
                 setGuests,
+                getGuests,
+                getTotalGuests,
                 meats,
                 drinks,
                 consumables,
