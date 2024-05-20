@@ -220,12 +220,14 @@ export default function CalculatorProvider({ children }) {
         }        
 
         consumables.forEach((consumable) => {
-            if (consumable.quantity === 0) {
-                delete consumablePrices[consumable.name]
-            } else {
-                consumablePrices[consumable.name] = consumable.quantity * consumable.price
-            }        
-        })  
+            consumablePrices[consumable.name] = consumable.quantity * consumable.price    
+        })
+        
+        Object.keys(consumablePrices).forEach((consumableName) => {
+            if (!selectedConsumables.some((consumable) => consumable.name === consumableName)) {
+                delete consumablePrices[consumableName]
+            }
+        })
 
         return consumablePrices
     }
