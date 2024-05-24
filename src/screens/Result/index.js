@@ -51,6 +51,7 @@ export default function Result() {
         } else if (phone.length === 10) {
             return phone.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3')
         }
+
         return phone
     }
 
@@ -70,30 +71,30 @@ export default function Result() {
         <View style={styles.container}>
             <Header showMenu={false} />
 
-            <ScrollView
-                contentContainerStyle={styles.content}
-                showsVerticalScrollIndicator={false}
-            >
+            <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
                 <View>
                     <Text style={styles.resultTitle}>Consumo de Carnes</Text>
 
                     {selectedMeats.map((meat, index) => (
-                        <View
-                            style={styles.resultContent}
-                            key={index}
-                        >
-                            <Text style={styles.resultText}>{meat.name}</Text>
+                        <View style={styles.resultContent} key={index}>
+                            <Text style={[styles.resultText, styles.keyText]}>
+                                {meat.name}
+                            </Text>
 
-                            <Text style={styles.resultText}>{formatKg(totalKgPerMeat)}</Text>
+                            <Text style={[styles.resultText, styles.valueText]}>
+                                {formatKg(totalKgPerMeat)}
+                            </Text>
                         </View>
                     ))}
 
-                    <View
-                        style={styles.resultContent}
-                    >
-                        <Text style={styles.resultText}>Total</Text>
+                    <View style={styles.resultContent}>
+                        <Text style={[styles.resultText, styles.keyText]}>
+                            Total
+                        </Text>
 
-                        <Text style={styles.resultText}>{formatKg(totalMeatKg)}</Text>
+                        <Text style={[styles.resultText, styles.valueText]}>
+                            {formatKg(totalMeatKg)}
+                        </Text>
                     </View>
                 </View>
 
@@ -101,38 +102,51 @@ export default function Result() {
                     <Text style={styles.resultTitle}>Consumo de Bebidas</Text>
 
                     {selectedDrinks.map((drink, index) => (
-                        <View
-                            style={styles.resultContent}
-                            key={index}
-                        >
-                            <Text style={styles.resultText}>{drink.name}</Text>
+                        <View style={styles.resultContent} key={index}>
+                            <Text style={[styles.resultText, styles.keyText]}>
+                                {drink.name}
+                            </Text>
 
-                            <Text style={styles.resultText}>{formatLiters(volumePerDrink[drink.name])}</Text>
+                            <Text style={[styles.resultText, styles.valueText]}>
+                                {formatLiters(volumePerDrink[drink.name])}
+                            </Text>
                         </View>
                     ))}
 
-                    <View
-                        style={styles.resultContent}
-                    >
-                        <Text style={styles.resultText}>Total</Text>
+                    <View style={styles.resultContent}>
+                        <Text style={[styles.resultText, styles.keyText]}>
+                            Total
+                        </Text>
 
-                        <Text style={styles.resultText}>{formatLiters(totalDrinkVolume)}</Text>
+                        <Text style={[styles.resultText, styles.valueText]}>
+                            {formatLiters(totalDrinkVolume)}
+                        </Text>
                     </View>
                 </View>
 
                 <View>
                     <Text style={styles.resultTitle}>Convidados</Text>
+
                     {getGuests().map((guest, index) => (
                         <View style={styles.resultContent} key={index}>
-                            <Text style={styles.resultText}>{guestTypeMapping[guest.type]}</Text>
+                            <Text style={[styles.resultText, styles.keyText]}>
+                                {guestTypeMapping[guest.type]}
+                            </Text>
 
-                            <Text style={styles.resultText}>{guest.count}</Text>
+                            <Text style={[styles.resultText, styles.valueText]}>
+                                {guest.count}
+                            </Text>
                         </View>
                     ))}
-                    <View style={styles.resultContent}>
-                        <Text style={styles.resultText}>Total</Text>
 
-                        <Text style={styles.resultText}>{totalGuests}</Text>
+                    <View style={styles.resultContent}>
+                        <Text style={[styles.resultText, styles.keyText]}>
+                            Total
+                        </Text>
+
+                        <Text style={[styles.resultText, styles.valueText]}>
+                            {totalGuests}
+                        </Text>
                     </View>
                 </View>
 
@@ -140,13 +154,14 @@ export default function Result() {
                     <Text style={styles.resultTitle}>Valor de Rateio</Text>
 
                     {Object.keys(individualPrice).map((type, index) => (
-                        <View
-                            style={styles.resultContent}
-                            key={index}
-                        >
-                            <Text style={styles.resultText}>{guestTypeMapping[type]}</Text>
+                        <View style={styles.resultContent} key={index}>
+                            <Text style={[styles.resultText, styles.keyText]}>
+                                {guestTypeMapping[type]}
+                            </Text>
 
-                            <Text style={styles.resultText}>{formatPrice(individualPrice[type])}</Text>
+                            <Text style={[styles.resultText, styles.valueText]}>
+                                {formatPrice(individualPrice[type])}
+                            </Text>
                         </View>
                     ))}
                 </View>
@@ -155,52 +170,70 @@ export default function Result() {
                     <Text style={styles.resultTitle}>Valor Gasto</Text>
 
                     <View style={styles.resultContent}>
-                        <Text style={styles.resultText}>Carnes</Text>
+                        <Text style={[styles.resultText, styles.keyText]}>
+                            Carnes
+                        </Text>
 
-                        <Text style={styles.resultText}>{formatPrice(totalMeatPrice)}</Text>
+                        <Text style={[styles.resultText, styles.valueText]}>
+                            {formatPrice(totalMeatPrice)}
+                        </Text>
                     </View>
 
                     <View style={styles.resultContent}>
-                        <Text style={styles.resultText}>Bebidas</Text>
+                        <Text style={[styles.resultText, styles.keyText]}>
+                            Bebidas
+                        </Text>
 
-                        <Text style={styles.resultText}>{formatPrice(totalDrinkPrice)}</Text>
+                        <Text style={[styles.resultText, styles.valueText]}>
+                            {formatPrice(totalDrinkPrice)}
+                        </Text>
                     </View>
 
                     {selectedConsumables.length > 0 && (
                         <View style={styles.resultContent}>
-                            <Text style={styles.resultText}>Consumíveis</Text>
+                            <Text style={[styles.resultText, styles.keyText]}>
+                                Consumíveis
+                            </Text>
 
-                            <Text style={styles.resultText}>{formatPrice(totalConsumablesPrice)}</Text>
+                            <Text style={[styles.resultText, styles.valueText]}>
+                                {formatPrice(totalConsumablesPrice)}
+                            </Text>
                         </View>
                     )}
 
                     {selectedSideDishes.length > 0 && (
                         <View style={styles.resultContent}>
-                            <Text style={styles.resultText}>Acompanhamentos</Text>
+                            <Text style={[styles.resultText, styles.keyText]}>
+                                Acompanhamentos
+                            </Text>
 
-                            <Text style={styles.resultText}>{formatPrice(totalSideDishesPrice)}</Text>
+                            <Text style={[styles.resultText, styles.valueText]}>
+                                {formatPrice(totalSideDishesPrice)}
+                            </Text>
                         </View>
                     )}
 
                     <View style={styles.resultContent}>
-                        <Text style={styles.resultText}>Total</Text>
+                        <Text style={[styles.resultText, styles.keyText]}>
+                            Total
+                        </Text>
 
-                        <Text style={styles.resultText}>{formatPrice(totalPrice)}</Text>
+                        <Text style={[styles.resultText, styles.valueText]}>
+                            {formatPrice(totalPrice)}
+                        </Text>
                     </View>
                 </View>
-
 
                 <View>
                     <Text style={styles.resultTitle}>Endereço</Text>
 
                     {Object.keys(nonEmptyAddressFields).map((key, index) => (
-                        <View
-                            style={styles.resultContent}
-                            key={index}
-                        >
-                            <Text style={styles.resultText}>{addressFieldMapping[key] || key.charAt(0).toUpperCase() + key.slice(1)}</Text>
+                        <View style={styles.resultContent} key={index}>
+                            <Text style={[styles.resultText, styles.keyText]}>
+                                {addressFieldMapping[key] || key.charAt(0).toUpperCase() + key.slice(1)}
+                            </Text>
                             
-                            <Text style={styles.resultText}>
+                            <Text style={[styles.resultText, styles.valueText]}>
                                 {key === 'cep' ? formatCep(nonEmptyAddressFields[key]) : key === 'contatoResponsavel' ? formatPhoneNumber(nonEmptyAddressFields[key]) : nonEmptyAddressFields[key]}
                             </Text>
                         </View>

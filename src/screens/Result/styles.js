@@ -26,12 +26,17 @@ export const styles = StyleSheet.create({
         borderColor: '#7f7f7f',
         borderRadius: 3,
         elevation: 3,
-        alignItems: 'center',
-        gap: 30
+        alignItems: 'center'
     },
     resultText: {
         fontFamily: 'Archivo_400Regular',
         fontSize: 15,
-        flexShrink: 1
+        flex: 1
+    },
+    keyText: {
+        textAlign: 'left'
+    },
+    valueText: {
+        textAlign: 'center'
     }
 })
