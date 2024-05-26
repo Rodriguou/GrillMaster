@@ -7,15 +7,12 @@ import AddressButton from '../../components/AddressButton'
 import { styles } from './styles'
 
 export default function Address() {
-
     return (
-        <SafeAreaView
-            style={styles.container}
-        >
+        <SafeAreaView style={styles.container}>
             <Header showMenu={false} />
 
             <ScrollView
-                contentContainerStyle={styles.containerContent}
+                contentContainerStyle={styles.content}
                 showsVerticalScrollIndicator={false}
             >
                 <View style={styles.forms}>

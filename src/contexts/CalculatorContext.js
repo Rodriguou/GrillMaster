@@ -1,4 +1,4 @@
-import React, { useState, createContext, useEffect } from 'react'
+import { useState, createContext, useEffect } from 'react'
 
 export const CalculatorContext = createContext()
 
@@ -19,11 +19,11 @@ export default function CalculatorProvider({ children }) {
     const getTotalGuests = () => {
         return Object.values(guests).reduce((total, count) => total + count, 0)
     }
-    
+
     const calculateTotalMeatKg = () => {
         // Cálculo do total de quilogramas de carne
         const totalMeatKg = 0.6 * guests.man + 0.4 * guests.woman + 0.25 * guests.kid
-        
+
         return totalMeatKg
     }
 
@@ -56,7 +56,7 @@ export default function CalculatorProvider({ children }) {
 
         return garlicBreadQuantity;
     }
-    
+
     const garlicBreadQuantity = calculateGarlicBreadQuantity();
 
     const calculateFarofaQuantity = () => {
@@ -72,9 +72,9 @@ export default function CalculatorProvider({ children }) {
 
         return riceQuantity;
     }
-    
+
     const riceQuantity = calculateRiceQuantity();
-    
+
     const meats = [
         {name: 'Picanha', price: 58.00, type: 'beef', image: require('../../assets/picanha.png')},
         {name: 'Costela', price: 27.00, type: 'beef', image: require('../../assets/rib.png')},
@@ -86,32 +86,33 @@ export default function CalculatorProvider({ children }) {
         {name: 'Asa', price: 14.00, type: 'chicken', image: require('../../assets/chickenWing.png')},
         {name: 'Peito', price: 23.00, type: 'chicken', image: require('../../assets/chickenBreast.png')}
     ]
-    
+
     const drinks = [
         {name: 'Água', price: 6.00, image: require('../../assets/water.png'), volume: 1500, servings: 1, alcoholic: false},
         {name: 'Refrigerante', price: 4.00, image: require('../../assets/soda.png'), volume: 350, servings: 4, alcoholic: false},
         {name: 'Cerveja', price: 4.50, image: require('../../assets/beer.png'), volume: 350, servings: 4, alcoholic: true},
     ]
-    
+
     const consumables = [
         {name: 'Carvão', price: 9.00, image: require('../../assets/coal.png'), quantity: totalMeatKg, proportional: false},
         // {name: 'Sal grosso', price: 5.90, image: require('../../assets/coarseSalt.png'), quantity: 1, proportional: true},
         // {name: 'Molho barbecue', price: 19.00, image: require('../../assets/barbecueSauce.png'), quantity: barbecueSauceQuantity, proportional: true},
     ]
-    
+
     const sideDishes = [
-        {name: 'Pão de Alho', price: 12.00, image: require('../../assets/garlicBread.png'), quantity: garlicBreadQuantity},
+        {name: 'Pão de alho', price: 12.00, image: require('../../assets/garlicBread.png'), quantity: garlicBreadQuantity},
         {name: 'Farofa', price: 7.50, image: require('../../assets/farofa.png'), quantity: farofaQuantity},
         {name: 'Arroz', price: 9.00, image: require('../../assets/rice.png'), quantity: riceQuantity},
     ]
-    
+
     const [selectedMeats, setSelectedMeats] = useState([])
     const [selectedDrinks, setSelectedDrinks] = useState([])
     const [selectedConsumables, setSelectedConsumables] = useState([])
     const [selectedSideDishes, setSelectedSideDishes] = useState([])
-    
+
     useEffect(() => {
         updateConsumableQuantity()
+
         updateSideDishQuantity()
     }, [guests]);
 
@@ -225,7 +226,7 @@ export default function CalculatorProvider({ children }) {
         consumables.forEach((consumable) => {
             consumablesPrices[consumable.name] = consumable.quantity * consumable.price    
         })
-        
+
         Object.keys(consumablesPrices).forEach((consumableName) => {
             if (!selectedConsumables.some((consumable) => consumable.name === consumableName)) {
                 delete consumablesPrices[consumableName]
@@ -237,7 +238,7 @@ export default function CalculatorProvider({ children }) {
 
     const calculateTotalConsumablesPrice = () => {
         let totalConsumablesPrice = 0
-        
+
         Object.values(calculateConsumablesPrices()).forEach((consumablePrice) =>
             totalConsumablesPrice += consumablePrice        
         )
@@ -266,7 +267,7 @@ export default function CalculatorProvider({ children }) {
     const calculateSideDishesPrices = () => {
         // Cálculo do preço dos consumíveis
         const sideDishesPrices = {
-            'Pão de Alho': 0,
+            'Pão de alho': 0,
             'Farofa': 0,
             'Arroz': 0 
         }        
@@ -274,7 +275,7 @@ export default function CalculatorProvider({ children }) {
         sideDishes.forEach((sideDish) => {
             sideDishesPrices[sideDish.name] = sideDish.quantity * sideDish.price    
         })
-        
+
         Object.keys(sideDishesPrices).forEach((sideDishName) => {
             if (!selectedSideDishes.some((sideDish) => sideDish.name === sideDishName)) {
                 delete sideDishesPrices[sideDishName]
@@ -283,7 +284,7 @@ export default function CalculatorProvider({ children }) {
 
         return sideDishesPrices
     }
-    
+
     const calculateTotalSideDishesPrice = () => {
         let totalSideDishesPrice = 0
 
@@ -353,13 +354,13 @@ export default function CalculatorProvider({ children }) {
     const individualPrice = calculateIndividualPrice()
 
     const totalMeatPrice = calculateTotalMeatPrice()
-    
+
     const totalDrinkPrice = calculateTotalDrinkPrice()
-    
+
     const totalConsumablesPrice = calculateTotalConsumablesPrice()
 
     const totalSideDishesPrice = calculateTotalSideDishesPrice()
-    
+
     const totalPrice = calculateTotalPrice()
 
     return (
