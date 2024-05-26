@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+import { CommonActions, useNavigation } from '@react-navigation/native'
 
 import { CalculatorContext } from '../../contexts/CalculatorContext'
 import { AddressContext } from '../../contexts/AddressContext'
@@ -38,7 +38,12 @@ export default function ResultButton() {
             contatoResponsavel: ''
         })
 
-        navigation.navigate('Home')
+        navigation.dispatch(
+            CommonActions.reset({
+                index: 0,
+                routes: [{ name: 'Home' }]
+            })
+        )
     }
 
     return (
