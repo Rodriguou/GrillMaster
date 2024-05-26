@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { Text, ScrollView, View } from 'react-native'
+import { useContext } from 'react'
+import { SafeAreaView, Text, ScrollView, View } from 'react-native'
 
 import Header from '../../components/Header'
 import ResultButton from '../../components/ResultButton'
@@ -23,7 +23,7 @@ export default function Result() {
             return volume.toLocaleString('pt-BR') + ' ml'
         }
     }
-    
+
     const formatPrice = (price) => {
         return price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
     }
@@ -68,7 +68,7 @@ export default function Result() {
     const totalGuests = getTotalGuests()
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Header showMenu={false} />
 
             <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
@@ -242,6 +242,6 @@ export default function Result() {
 
                 <ResultButton />
             </ScrollView>
-        </View>
+        </SafeAreaView>
     )
 }
