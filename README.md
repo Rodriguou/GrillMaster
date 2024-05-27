@@ -23,14 +23,14 @@ Há duas formas de baixar o repositório do projeto **GrillMaster**:
 
 1. **Baixar o Node.js**: Certifique-se de ter o Node.js instalado em sua máquina. Você pode baixar a versão mais recente do Node.js [aqui](https://nodejs.org/).
 
-2. **Instalar Dependências**: Após clonar o repositório, navegue até o diretório do projeto e instale as dependências necessárias com o seguinte comando:
+2. **Instalar Dependências**: Após clonar o repositório, navegue até a pasta raiz do projeto e instale as dependências necessárias com o seguinte comando:
   ```bash
   npm install
   ```
 
 3. **Baixar o Expo Go**: Baixe o aplicativo Expo Go no seu dispositivo móvel, disponível na Google Play Store e na Apple App Store.
 
-4. **Iniciar o Projeto: Para iniciar o projeto, utilize um dos seguintes comandos:
+4. **Iniciar o Projeto**: Para iniciar o projeto, utilize um dos seguintes comandos:
   ```bash
   npm start
   ```
@@ -54,4 +54,3 @@ Há duas formas de baixar o repositório do projeto **GrillMaster**:
 - [Rodrigo](https://github.com/Rodriguou)
 - [Ryan](https://github.com/ryanNS3)
 - [Weverton](https://github.com/WevertonSPWOS)
-
