@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
-import { Text, TouchableOpacity, View, Alert } from 'react-native'
+import { useContext } from 'react'
+import { Alert } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
+import ActionButton from '../ActionButton'
 import { CalculatorContext } from '../../contexts/CalculatorContext'
-import { styles } from './styles'
 
 export default function CalculateButton() {
     const navigation = useNavigation()
@@ -22,11 +22,5 @@ export default function CalculateButton() {
         }
     }
 
-    return (
-        <View style={styles.container}>
-            <TouchableOpacity style={styles.button} onPress={handleButtonPress}>
-                <Text style={styles.buttonText}>CONTINUAR</Text>
-            </TouchableOpacity>
-        </View>
-    )
+    return <ActionButton onPress={handleButtonPress} title="CONTINUAR" />
 }
