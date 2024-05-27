@@ -2,17 +2,18 @@
 
 ## Descrição do Projeto
 
-O **GrillMaster** é um aplicativo móvel desenvolvido para calcular e organizar um churrasco de forma prática e eficiente. Criado como parte de um processo seletivo para uma vaga de desenvolvedor mobile júnior na ACME Tecnologia, o GrillMaster atende aos seguintes requisitos funcionais e regras de negócio:
+O **GrillMaster** é um aplicativo móvel desenvolvido para calcular e organizar um churrasco de forma prática e eficiente.
 
 ## Como Baixar o Repositório
 
-Para baixar o repositório do projeto **GrillMaster**, execute os seguintes comandos no seu terminal:
+Há duas formas baixar o repositório do projeto **GrillMaster**:
 
-```bash
-git clone https://github.com/Rodriguou/GrillMaster.git
-````
-
-# GrillMaster
+1. **Baixar o Git**: Você pode baixar a versão mais recente do Git [aqui](https://git-scm.com/).
+   
+2. **Clonar Repositório**: Clone o repositório com o seguinte comando:
+      ```bash
+      git clone https://github.com/Rodriguou/GrillMaster.git
+      ````
 
 ## Como Executar o Projeto
 
@@ -22,3 +23,4 @@ git clone https://github.com/Rodriguou/GrillMaster.git
    ```bash
    npm install
    ````
+
