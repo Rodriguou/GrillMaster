@@ -11,7 +11,8 @@ export const styles = StyleSheet.create({
         flexWrap: 'wrap',
         fontSize: 30,
         fontFamily: 'Archivo_700Bold',
-        color: '#0b0e16'
+        color: '#0b0e16',
+        maxWidth: 240
     },
     number: {
         fontSize: 27,
