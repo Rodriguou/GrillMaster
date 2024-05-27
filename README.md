@@ -47,3 +47,12 @@ Há duas formas de baixar o repositório do projeto **GrillMaster**:
   ```bash
   npx expo --tunnel
   ```
+
+# Integrantes
+
+- [Kauê](https://github.com/kauetrigolo)
+- [Laiza](https://github.com/LaizaBarbosa)
+- [Rodrigo](https://github.com/Rodriguou)
+- [Ryan](https://github.com/ryanNS3)
+- [Weverton](https://github.com/WevertonSPWOS)
+
