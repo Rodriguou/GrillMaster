@@ -15,10 +15,9 @@ Há duas formas de baixar o repositório do projeto **GrillMaster**:
 - **Usando Git**:
   1. **Baixar o Git**: Você pode baixar a versão mais recente do Git [aqui](https://git-scm.com/).
   2. **Clonar Repositório**: Clone o repositório com o seguinte comando:
-
-  ```bash
-  git clone https://github.com/Rodriguou/GrillMaster.git
-  ```
+    ```bash
+    git clone https://github.com/Rodriguou/GrillMaster.git
+    ```
 
 ## Como Executar o Projeto
 
